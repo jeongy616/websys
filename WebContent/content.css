@@ -1,0 +1,33 @@
+@CHARSET "EUC-KR";
+/*º»¹®*/
+	#schedule_div{
+		padding:350px 0px 0px 0px;
+		float:left;
+	}
+	#schedule_div > img:hover{
+		opacity:0.7;
+	}
+	#content_div {
+		padding:50px;
+		padding-left:150px;
+	}
+	#main_section {
+		position:relative;
+		overflow:hidden;
+		padding-left:150px;
+	}
+	#main_section > div {
+		float:left;
+		padding: 20px 20px 0px 20px;
+		width:43%;
+	}
+	#main_section > div > article{
+		width:100%;
+	
+	}
+	#main_section > div > article > img {
+		
+	}
+	#main_section > div > article > img:hover {
+		opacity:0.7;
+	}

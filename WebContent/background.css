@@ -1,0 +1,9 @@
+@CHARSET "EUC-KR";
+body{
+	background-image:url('photo/you.jpg');
+	background-size : 100%;
+	background-repeat:no-repeat;
+	background-color : #dae3ea;
+	overflow: scroll;
+}
+
