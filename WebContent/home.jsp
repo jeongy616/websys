@@ -15,6 +15,5 @@ body{
 	<jsp:include page="header.html" flush="false" />
 	<jsp:include page="home_main.jsp" flush="false" />
 	<jsp:include page="footer.html" flush="false" />
-	<p>test</p>
 </body>
 </html>
