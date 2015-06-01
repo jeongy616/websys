@@ -34,7 +34,6 @@
 				String testpass = rs.getString("userpw");
 				
 				if(userpw.equals(testpass)){
-					response.sendRedirect("home.jsp");
 					%>
 					<tr><td width="100"><%=testid%></td>
 					<td width="100"><%=testpass%></td></tr>

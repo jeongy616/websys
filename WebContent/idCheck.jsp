@@ -8,40 +8,40 @@
 <title>Insert title here</title>
 </head>
 <body>
+<table>
 	<%
-		int i =0;
+		int i = 2;
+		boolean j = false;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try{
 			String url = "jdbc:mysql://localhost:3306/websysdb";
 			String id = "root";
-			String pw = "Tjdnf9199";
+			String pw = "websys";
 			Class.forName("com.mysql.jdbc.Driver"); 
 			conn=DriverManager.getConnection(url,id,pw);
 			
 			String userid = request.getParameter("id");
-			System.out.println("input id" + userid);
 	
-			String sql = "select * from members where userId = ?";
-			pstmt = conn.prepareStatement(sql);       
+			String sql = "SELECT * FROM members WHERE userId = ?";
+			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1,userid);
 			rs = pstmt.executeQuery();
+			
 			while(rs.next()){
-				String testid = rs.getString("userid");
+				String testid = rs.getString("userId");
 				
 				if(userid.equals(testid)){
-					%>
+					i = 0;%>
 					<p>중복된 아이디입니다.</p>
-					<% 
-					i=0;
-				}
-				else{
-					%>
-					<p>사용가능한 아이디입니다.</p>
 					<%
-					i=1;
 				}
+			}
+			if(i==2){
+			%>
+			<p>사용가능한 아이디 입니다.</p>
+			<%
 			}
 		}catch(Exception e){          
 			e.printStackTrace();
@@ -52,6 +52,6 @@
 			if(conn != null) try{conn.close();}catch(SQLException sqle){} 
 		}
 	%>
-
+</table>
 </body>
 </html>
