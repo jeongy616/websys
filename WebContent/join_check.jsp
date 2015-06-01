@@ -47,6 +47,7 @@
 			pstmt.executeUpdate();
 			
 			out.println("test 테이블에 새로운 레코드를 추가했습니다.");
+			response.sendRedirect("login.jsp");
 			
 		}catch(Exception e){          
 			e.printStackTrace();

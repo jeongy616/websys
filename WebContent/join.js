@@ -1,4 +1,5 @@
- window.onload = function sec(){//보안번호 확인
+
+	window.onload = function sec(){//보안번호 확인
 		  var sec = Math.ceil(Math.random()*1000000);
 		  var out=document.getElementById("usersec1");
 		  out.value = sec;
@@ -20,24 +21,26 @@
 		  var pw1 = document.join_form.userpw.value;
 		  var pw2 = document.join_form.userpwcheck.value;
 		  
-		  if(pw1.equals(pw2)){
+		  if(pw1==pw2){
 			  alert("같습니다");
 		  }
 		  else{
 			  alert("비밀번호를 확인해주세요");
+			  document.join_form.userpwcheck.value="";
 		  }
 	  }
-	  function sub() {
+	  function sub(){
           var fr = document.getElementById("join_form");
 
           for (i = 0; i < fr.elements.length; i++) {
-              if (fr.elements[i].value == "") {
+              if (fr.elements[i].value == NULL) {
                   alert("모두 작성해주세요.");
                   fr.elements[i].focus();
                   return false;
               }
           }
-          return true;
-      }/**
+          fr.submit();
+      }
+	  /**
  * 
  */

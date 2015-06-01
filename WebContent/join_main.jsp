@@ -12,6 +12,7 @@
  .top{font-weight:bold; padding:5px 0px; border:0px; border-bottom:1px solid #919191; }
  .bottom{text-align:center; border:0px} 
 </style>
+<form onsubmit="return sub()" name="join_form" action="join_check.jsp" method="post">
 <div id="schedule_div">
 	<img src="photo/schedule1.png" id="sched" width="120px" height="80px" onclick="location='schedule.html'">
 </div>
@@ -19,7 +20,7 @@
 	<section id="main_section">
 		<div id="join_div">
 			<article id="join_article">
-			<form onsubmit="return sub()" name="join_form" action="join_check.jsp" method="post">
+			
 <table border="0" cellpadding="0" cellspacing="0" width="900">
  <tr>
   <th width="200">아이디 </th>
@@ -82,10 +83,10 @@
 
 </table>
 
-</form>
+
 </article>
 </div>
 </section>
 </div>
-
+</form>
 	  
