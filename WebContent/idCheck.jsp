@@ -14,16 +14,16 @@
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try{
-			String url = "jdbc:mysql://localhost:3306/web01";
+			String url = "jdbc:mysql://localhost:3306/websysdb";
 			String id = "root";
-			String pw = "websys";
+			String pw = "Tjdnf9199";
 			Class.forName("com.mysql.jdbc.Driver"); 
 			conn=DriverManager.getConnection(url,id,pw);
 			
 			String userid = request.getParameter("id");
 			System.out.println("input id" + userid);
 	
-			String sql = "select * from test where userid = ?";
+			String sql = "select * from members where userId = ?";
 			pstmt = conn.prepareStatement(sql);       
 			pstmt.setString(1,userid);
 			rs = pstmt.executeQuery();
