@@ -17,7 +17,7 @@
 			</tr>
 			</table>
 			<div align="right">
-			<img src="photo/글쓰기.png" width="70px" onclick="location='board_write.html'">
+			<img src="photo/글쓰기.png" width="70px" onclick="location='board_write_main.jsp'">
 			</div>
 			<br><br>
 			<div align ="center">

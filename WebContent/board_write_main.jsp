@@ -1,7 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <link href="content.css" rel="stylesheet" />
-    
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<link href="background.css" rel="stylesheet" />
+<link href="content.css" rel="stylesheet" />
+<style>
+body{
+	background-color : #dae3ea
+}</style>
+</head>
+<body>
+	<jsp:include page="header.html" flush="false" />
 <div id="content_div">
 	<section id="main_section">
 	<img src="photo/게시판.png" height="50px">
