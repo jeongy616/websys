@@ -13,7 +13,7 @@ body{
 }</style>
 </head>
 <body>
-	<jsp:include page="header.html" flush="false" />
+	<jsp:include page="header.jsp" flush="false" />
 	
  <div id="content_div">
 	<section id="main_section">
