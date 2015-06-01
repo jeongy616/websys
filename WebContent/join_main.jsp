@@ -44,26 +44,26 @@
  <tr>
   <th width="200">성별</th>
   <td>
-   <select>
-    <option>여자</option>
-    <option>남자</option>
+   <select name="usersex">
+    <option value="female">여자</option>
+    <option value="male">남자</option>
    </select>
   </td>
  </tr>
 
  <tr>
   <th width="200">생년월일</th>
-  <td><input type="text" size="6">년<input type="text" size="4">월<input type="text" size="4">일
+  <td><input type="text" size="6" name="usery">년<input type="text" size="4" name="userm">월<input type="text" size="4" name="userd">일
  </tr>
 
  <tr>
   <th width="200">전화번호</th>
-  <td><input type="text" size="6"> - <input type="text" size="6"> - <input type="text" size="6"></td>
+  <td><input type="text" size="6" name="phone1"> - <input type="text" size="6" name="phone2"> - <input type="text" size="6" name="phone3"></td>
  </tr>
 
  <tr>
   <th width="200">이메일 </th>
-  <td><input type="text" size="12"> @ <input type="text" size="20">
+  <td><input type="text" size="12" name="email1"> @ <input type="text" size="20" name="email2">
   *이메일로 다양한 서비스를 받아보시겠습니까? <input type="radio" checked>예<input type="radio">아니오
   </td>
  </tr>
