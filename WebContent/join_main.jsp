@@ -42,7 +42,7 @@
  </tr>
 
  <tr>
-  <th width="200">아이디</th>
+  <th width="200">성별</th>
   <td>
    <select>
     <option>여자</option>
@@ -54,7 +54,6 @@
  <tr>
   <th width="200">생년월일</th>
   <td><input type="text" size="6">년<input type="text" size="4">월<input type="text" size="4">일
-  <input type="radio" checked>양력<input type="radio">음력 </td>
  </tr>
 
  <tr>
@@ -65,10 +64,6 @@
  <tr>
   <th width="200">이메일 </th>
   <td><input type="text" size="12"> @ <input type="text" size="20">
-   <select>
-    <option>직접입력</option>
-    <option>NAVER.COM</option>
-   </select><br>
   *이메일로 다양한 서비스를 받아보시겠습니까? <input type="radio" checked>예<input type="radio">아니오
   </td>
  </tr>
