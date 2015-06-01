@@ -40,10 +40,7 @@
 					i = 0;
 					session.setAttribute("loginID", userid);
 					%>
-					<tr><td width="100"><%=testid%></td>
-					<td width="100"><%=testpass%></td></tr>
-					<p> 맞음.. </p>
-					<a href="home.jsp">로그인체크</a>
+					<script>location.href='home.jsp';</script>
 					<%
 				}
 				else if(userid.equals(testid)){

@@ -8,8 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<script>
 	<% session.invalidate(); %>
-	<a href="home.jsp">로그인체크</a>
+	location.href='home.jsp';
+</script>
+
 </body>
 </html>
