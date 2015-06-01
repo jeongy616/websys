@@ -7,6 +7,10 @@
 <title>Insert title her</title>
 <link href="background.css" rel="stylesheet" />
 <style>
+*{
+margin:0px;
+padding:0px;
+}
 body{
 	background-color : #dae3ea;
 }

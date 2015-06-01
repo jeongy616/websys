@@ -63,19 +63,19 @@ $(function() {
 	
 
 #prev_btn {position:relative;top:0;left:0 ;}
-#next_btn {position:relative;top:0;right:0;margin-left:400px;}
+#next_btn {position:relative;top:0;right:0;margin-left:450px;}
 .btn {width:30px;height:350px;border:0;background-color:#dae3ea;color:white;font-size:30px;}
  
-#slider {position:absolute;margin:0;padding:0;list-style:none;width:450px;height:500px;overflow:hidden}
+#slider {position:absolute;margin:0;padding:0;list-style:none;width:500px;height:500px;overflow:hidden}
 #slider li {display:none;position:absolute;left:0;top:0}
-#slider img {width:450px;height:350px}
+#slider img {width:500px;height:350px;}
 </style>
 <div id="content_div">
 	<section id="main_section">
 		<div id="photo_div">
 			<article id="photo_article">
 				<ul id="slider">
-    				<li><img src="photo/youcheon3.jpg"></li>
+    				<li><img src="photo/lovelyyou.jpg"></li>
     				<li><img src="photo/youcheon2.jpg"></li>
     				<li><img src="photo/youcheon3.jpg"></li>
 				</ul>
