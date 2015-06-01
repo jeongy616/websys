@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <style>
 li{list-style:none; }
 a{text-decoration:none;}
@@ -28,7 +30,7 @@ img{border:none;
 		border:none;
 	}
 	
-	/*¸Þ´º*/
+	/*ë©”ë‰´*/
 	#menu {
 		position:relative;
 		background-color :rgba(0,0,0,0.5);
@@ -36,7 +38,7 @@ img{border:none;
 	#menu > ul {
 		position:relative;
 		overflow:hidden;
-		font-family:'¸¼Àº °íµñ'
+		font-family:'ë§‘ì€ ê³ ë”•'
 	}
 	#menu > ul > li{float:left;}
 	#menu > ul > li > ul {visibility:hidden;}
@@ -57,14 +59,14 @@ img{border:none;
  <div id="header_div">
 	<header id="main_header">
 		<nav id="shortcut">
-			<input type="button" value="ÆäÀÌ½ººÏ">
-			<input type="button" value="Æ®À§ÅÍ">
-			<input type="button" value="¿£ÅÍÅ×ÀÎ¸ÕÆ®">
+			<input type="button" value="íŽ˜ì´ìŠ¤ë¶">
+			<input type="button" value="íŠ¸ìœ„í„°">
+			<input type="button" value="ì—”í„°í…Œì¸ë¨¼íŠ¸">
 		</nav>
-		<img src="photo/»ç¶ûÇØÀ¯.png" id="title" height="100px" onclick="location='home.jsp'">
+		<img src="photo/ì‚¬ëž‘í•´ìœ .png" id="title" height="100px" onclick="location='home.jsp'">
 		<div id="login">
-			<button id="in" name="in" onclick="location='login.jsp'"><img src="photo/·Î±×ÀÎ.png" width="45px" ></button> 
-			<button id="join" onclick="location='join.jsp'"/><img src="photo/È¸¿ø°¡ÀÔ.png" width="50px"></button>
+			<button id="in" name="in" onclick="location='login.jsp'"><img src="photo/ë¡œê·¸ì¸.png" width="45px" ></button> 
+			<button id="join" onclick="location='join.jsp'"/><img src="photo/íšŒì›ê°€ìž….png" width="50px"></button>
 		</div>
 	</header>
 	<nav id="menu">
@@ -86,5 +88,5 @@ img{border:none;
 					<li><a href="shortcut.jsp">Shortcut</a></li>
 				</ul>
 		</ul>
-	</nav><!--¿©±â±îÁö°¡ ¸Þ´º-->
-</div> <!--¿©±â±îÁö°¡ Header-->
+	</nav><!--ì—¬ê¸°ê¹Œì§€ê°€ ë©”ë‰´-->
+</div> <!--ì—¬ê¸°ê¹Œì§€ê°€ Header-->

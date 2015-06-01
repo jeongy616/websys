@@ -10,9 +10,11 @@
 </head>
 <body>
 <%
+		request.setCharacterEncoding("UTF-8");
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		
 		try{
 			String url = "jdbc:mysql://localhost:3306/websysdb";
 			String id = "root";
@@ -22,7 +24,6 @@
 			
 			String title = request.getParameter("title");
 			String userid = request.getParameter("");
-			//Date date = request.getParameter("inputpw");
 			String text = request.getParameter("text");
 			int readcount = 0;
 			int num = 0;

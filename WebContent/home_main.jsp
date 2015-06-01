@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="jquery-1.11.3.min.js"></script>
 <script>
 $(function() {
     var time = 20;
@@ -40,10 +40,6 @@ $(function() {
 </script>
 <style>
 /*본문*/
-	#schedule_div{
-		padding:350px 0px 0px 0px;
-		float:left;
-	}
 	#content_div {
 		padding:50px;
 		padding-left:150px;
@@ -74,10 +70,6 @@ $(function() {
 #slider li {display:none;position:absolute;left:0;top:0}
 #slider img {width:450px;height:350px}
 </style>
-
-<div id="schedule_div">
-	<img src="photo/schedule1.png" id="sched" width="120px" height="80px" onclick="location='schedule.html'">
-</div>
 <div id="content_div">
 	<section id="main_section">
 		<div id="photo_div">
