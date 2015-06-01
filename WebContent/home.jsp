@@ -12,7 +12,23 @@ body{
 }</style>
 </head>
 <body>
-	<jsp:include page="header.html" flush="false" />
+	<%
+		String loginid = (String)session.getAttribute("loginID");
+		boolean isLogin = false;
+		if(loginid!=null){
+			isLogin = true;
+		}
+		if(isLogin){
+	%>
+			로그인완료 <%=loginid %>
+			<jsp:include page="header_login.html" flush="false" />
+	<%	}
+		else{
+	%>
+			<jsp:include page="header.html" flush="false" />
+	<%	}
+	%>
+
 	<jsp:include page="home_main.jsp" flush="false" />
 	<jsp:include page="footer.html" flush="false" />
 </body>

@@ -9,11 +9,13 @@
 </head>
 <body>
 	<%
+		int i=2;
+
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try{
-			String url = "jdbc:mysql://localhost:3306/web01";
+			String url = "jdbc:mysql://localhost:3306/websysdb";
 			String id = "root";
 			String pw = "websys";
 			Class.forName("com.mysql.jdbc.Driver"); 
@@ -25,26 +27,37 @@
 			System.out.println("input id" + userid);
 			System.out.println("input pw" + userpw);
 			
-			String sql = "select * from test where userid = ?";
+			String sql = "SELECT * FROM members WHERE userId = ?";
 			pstmt = conn.prepareStatement(sql);       
 			pstmt.setString(1,userid);
 			rs = pstmt.executeQuery();
+
 			while(rs.next()){
-				String testid = rs.getString("userid");
-				String testpass = rs.getString("userpw");
+				String testid = rs.getString("userId");
+				String testpass = rs.getString("userPwd");
 				
-				if(userpw.equals(testpass)){
+				if(userid.equals(testid) && userpw.equals(testpass)){
+					i = 0;
+					session.setAttribute("loginID", userid);
 					%>
 					<tr><td width="100"><%=testid%></td>
 					<td width="100"><%=testpass%></td></tr>
 					<p> 맞음.. </p>
-		<%
-				} else {
-					%>
-					<script>alert("아이디나 비밀번호가 틀렸습니다."); location="login.jsp"</script>
-		<%
+					<a href="home.jsp">로그인체크</a>
+					<%
+				}
+				else if(userid.equals(testid)){
+					i=0;%>
+					<script>alert("비밀번호가 일치하지 않습니다."); location="login.jsp"</script>
+					<%
 				}
 			}
+			if(i==2){
+			%>
+			<script>alert("아이디가 일치하지 않습니다."); location="login.jsp"</script>
+			<%
+			}
+
 		}catch(Exception e){          
 			e.printStackTrace();
 			out.println("test 테이블 호출에 실패했습니다.");
