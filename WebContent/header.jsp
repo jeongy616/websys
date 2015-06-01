@@ -82,11 +82,7 @@ img{border:none;
 					<li><a href="board.jsp"> Board </a></li>
 					<li><a href="letter.jsp"> Letter   </a></li>
 				</ul>
-			<li><a href="#">Etc</a>
-				<ul class="sub">
-					<li><a href="schedule.jsp">Schedule</a></li>
-					<li><a href="shortcut.jsp">Shortcut</a></li>
-				</ul>
+			<li id="support"><a href="support.jsp">Support</a>
 		</ul>
 	</nav><!--여기까지가 메뉴-->
 </div> <!--여기까지가 Header-->
