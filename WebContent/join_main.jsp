@@ -12,7 +12,7 @@
  .top{font-weight:bold; padding:5px 0px; border:0px; border-bottom:1px solid #919191; }
  .bottom{text-align:center; border:0px} 
 </style>
-<form onsubmit="return sub()" name="join_form" action="join_check.jsp" method="post">
+
 <div id="schedule_div">
 	<img src="photo/schedule1.png" id="sched" width="120px" height="80px" onclick="location='schedule.html'">
 </div>
@@ -20,11 +20,11 @@
 	<section id="main_section">
 		<div id="join_div">
 			<article id="join_article">
-			
+		<form  name="join_form" id="join_form" action="join_check.jsp" method="post" onsubmit="return sub();">	
 <table border="0" cellpadding="0" cellspacing="0" width="900">
  <tr>
   <th width="200">아이디 </th>
-  <td><input type="text" size="20" name="userid"> <input type="button" value="중복확인" onclick="idcheck()">*4~12자의 영문과 숫자의 조합</td>
+  <td><input type="text" size="20" name="userid" value=""> <input type="button" value="중복확인" onclick="idcheck()">*4~12자의 영문과 숫자의 조합</td>
  </tr>
 
  <tr>
@@ -65,13 +65,12 @@
  <tr>
   <th width="200">이메일 </th>
   <td><input type="text" size="12" name="email1"> @ <input type="text" size="20" name="email2">
-  *이메일로 다양한 서비스를 받아보시겠습니까? <input type="radio" checked>예<input type="radio">아니오
   </td>
  </tr>
 
 <tr>
 	<th>보안문자</th><td><input type="text" size="6" id="usersec1" disabled="disabled" value="000000">
-	<input type="text" size="6" id="usersec2" ></td>
+	<input type="text" size="6" id="usersec2" > <input type="button" value="확인" onclick="secCheck()"></td>
 </tr>
 
 

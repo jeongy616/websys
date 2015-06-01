@@ -1,8 +1,22 @@
-
+	var secchk=0;
 	window.onload = function sec(){//보안번호 확인
 		  var sec = Math.ceil(Math.random()*1000000);
 		  var out=document.getElementById("usersec1");
 		  out.value = sec;
+	  }
+	  function secCheck(){
+		  var sec1 = document.join_form.usersec1.value;
+		  var sec2 = document.join_form.usersec2.value;
+		  
+		  if(sec1 == sec2){
+			  secchk=1;
+			  alert("일치합니다.");
+			  return true;
+		  }
+		  else{
+			  alert("보안문자를 확인하세요");
+			  document.join_form.usersec2.value="";
+		  }
 	  }
 	  function quiz(){
 		var q= new Array(2,3,4,5,6);
@@ -22,7 +36,7 @@
 		  var pw2 = document.join_form.userpwcheck.value;
 		  
 		  if(pw1==pw2){
-			  alert("같습니다");
+			  alert("일치합니다.");
 		  }
 		  else{
 			  alert("비밀번호를 확인해주세요");
@@ -31,15 +45,18 @@
 	  }
 	  function sub(){
           var fr = document.getElementById("join_form");
-
-          for (i = 0; i < fr.elements.length; i++) {
-              if (fr.elements[i].value == NULL) {
-                  alert("모두 작성해주세요.");
+          for(i=0; i < fr.elements.length; i++) {
+              if (fr.elements[i].value == ""){
+                  alert("빈칸을 채우세요.");
                   fr.elements[i].focus();
                   return false;
               }
           }
-          fr.submit();
+          if(secchk == 0){
+        	  alert("보안문자 확인을 클릭하세요.");
+        	  return false;
+          }
+          return true;
       }
 	  /**
  * 
