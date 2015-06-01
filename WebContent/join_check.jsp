@@ -9,6 +9,7 @@
 </head>
 <body>
 <%
+		request.setCharacterEncoding("UTF-8");
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
