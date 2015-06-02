@@ -16,6 +16,11 @@ padding:0px;
 body{
 	background-color : #dae3ea;
 }
+	#D_div{
+		position: absolute;
+		padding-top:140px;
+		padding-left:100px;
+	}
 	#schedule_div{
 		position: absolute;
 		height: 800px;
@@ -69,51 +74,36 @@ body{
 			<jsp:include page="header.jsp" flush="false" />
 	<%	}
 	%>
-	<div id="schedule_div">
- <%
-   // 2010 남아공 월드컵
-  int DdayYear = 2010;
-   int DdayMonth = 6;
-   int DdayDate = 11;
-  
-   Calendar currentCalendar = Calendar.getInstance();
-   Calendar cal = Calendar.getInstance();
-
-  int curYear =currentCalendar.get(Calendar.YEAR); 
-   int curMonth =currentCalendar.get(Calendar.MONTH)+1;
-   int curDate =currentCalendar.get(Calendar.DATE);
-
-  int nTotalDate1 = 0, nTotalDate2 = 0, nDiffOfYear = 0, nDiffOfDay = 0;
-
-  //System.out.println("오늘은 올해의 " +cal.get(Calendar.DAY_OF_YEAR)+"번째 날 입니다");
-   //System.out.println("오늘은 이번주의 " +cal.get(Calendar.DAY_OF_WEEK)+"번째 날 입니다");
-   //System.out.println("오늘은 올해의 "+cal.get(Calendar.WEEK_OF_YEAR)+"번째 주 입니다");
-
-  if(DdayYear > curYear){  
-     for(int i=curYear; i<DdayYear; i++){
-       cal.set(i, 12, 0); // 2010, 12, 0
-       nDiffOfYear += cal.get(Calendar.DAY_OF_YEAR);
-     }
-     nTotalDate1 += nDiffOfYear;
-   }else if(DdayYear < curYear){
-     for(int i=DdayYear; i<curYear; i++){
-       cal.set(i, 12, 0);
-       nDiffOfYear += cal.get(Calendar.DAY_OF_YEAR);
-     }
-     nTotalDate2 += nDiffOfYear; 
-   }
-
-  cal.set(DdayYear, DdayMonth-1, DdayDate);
-   nDiffOfDay = cal.get(Calendar.DAY_OF_YEAR);
-   nTotalDate1 += nDiffOfDay;
-
-  cal.set(curYear, curMonth-1, curDate);
-   nDiffOfDay = cal.get(Calendar.DAY_OF_YEAR);
-   nTotalDate2 += nDiffOfDay;
-   
-   int Dday = nTotalDate1 - nTotalDate2;
-%>
+	<div id="D_div">
+	<%
+		int DY=2015;
+		int DM=8;
+		int DD=27;
 		
+		Calendar currentCalendar = Calendar.getInstance();
+	    Calendar cal = Calendar.getInstance();
+	    
+	    int nTotalDate1 = 0, nTotalDate2 = 0, nDiffOfYear = 0, nDiffOfDay = 0;
+	    
+		int curYear =currentCalendar.get(Calendar.YEAR); 
+	    int curMonth =currentCalendar.get(Calendar.MONTH)+1;
+	    int curDate =currentCalendar.get(Calendar.DATE);
+	    
+
+	     cal.set(DY, DM-1, DD);
+	      nDiffOfDay = cal.get(Calendar.DAY_OF_YEAR);
+	      nTotalDate1 += nDiffOfDay;
+
+	     cal.set(curYear, curMonth-1, curDate);
+	      nDiffOfDay = cal.get(Calendar.DAY_OF_YEAR);
+	      nTotalDate2 += nDiffOfDay;
+	      
+	      int Dday = nTotalDate1 - nTotalDate2;
+	    
+	%>
+		<label><font face="monospace" size="3"><h1>D-day <%=Dday%></h1></font></label>
+	</div>
+	<div id="schedule_div">
 		<img src="photo/schedule22.png" id="sched" width="120px" height="80px">
 	</div>
 	<jsp:include page="home_main.jsp" flush="false" />
