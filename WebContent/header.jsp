@@ -26,8 +26,9 @@ img{border:none;
 		padding-bottom:20px;
 		display:inline-block;
 	}
-	#main_header > #login > button {
+	#main_header > #login > img {
 		border:none;
+		cursor: pointer;
 	}
 	
 	/*메뉴*/
@@ -65,8 +66,8 @@ img{border:none;
 		</nav>
 		<img src="photo/사랑해유.png" id="title" height="100px" onclick="location='home.jsp'">
 		<div id="login">
-			<button id="in" name="in" onclick="location='login.jsp'"><img src="photo/로그인.png" width="45px" ></button> 
-			<button id="join" onclick="location='join.jsp'"/><img src="photo/회원가입.png" width="50px"></button>
+			<img src="photo/login.png" width="50px" id="in" name="in" onclick="location='login.jsp'"> 
+			<img src="photo/회원가입.png" width="60px" id="join" onclick="location='join.jsp'">
 		</div>
 	</header>
 	<nav id="menu">
