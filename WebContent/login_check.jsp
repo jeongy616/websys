@@ -39,6 +39,7 @@
 				if(userid.equals(testid) && userpw.equals(testpass)){
 					i = 0;
 					session.setAttribute("loginID", userid);
+					session.setMaxInactiveInterval(60 * 60);
 					%>
 					<script>location.href='home.jsp';</script>
 					<%

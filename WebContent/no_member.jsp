@@ -22,7 +22,7 @@ body{
 		<div align="center">
 		<p>
 			사용권한이 없습니다.<br>
-			 <label onclick="location='login.html'">로그인 </label><label onclick="location='join.html'">회원가입</label>
+			 <label onclick="location='login.jsp'">로그인 </label><label onclick="location='join.jsp'">회원가입</label>
 		</p>
 		</div>
 		</article>
