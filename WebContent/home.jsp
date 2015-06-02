@@ -87,6 +87,8 @@ body{
 		int curYear =currentCalendar.get(Calendar.YEAR); 
 	    int curMonth =currentCalendar.get(Calendar.MONTH)+1;
 	    int curDate =currentCalendar.get(Calendar.DATE);
+	    int curMin = currentCalendar.get(Calendar.MINUTE);
+	    int curSec = currentCalendar.get(Calendar.SECOND);
 	    
 
 	     cal.set(DY, DM-1, DD);
