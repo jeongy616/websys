@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
  <%@ page import = "java.text.*" %>
  <%@ page import = "java.util.*" %>
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -75,22 +76,30 @@ body{
 	%>
 	<div id="D_div">
 	<%
-		int DY=2015;
-		int DM=8;
-		int DD=27;
-		
 		Calendar currentCalendar = Calendar.getInstance();
 	    Calendar cal = Calendar.getInstance();
+	    Calendar dday= Calendar.getInstance();
 	    
 	    int nTotalDate1 = 0, nTotalDate2 = 0, nDiffOfYear = 0, nDiffOfDay = 0;
 	    
-		int curYear =currentCalendar.get(Calendar.YEAR); 
-	    int curMonth =currentCalendar.get(Calendar.MONTH)+1;
-	    int curDate =currentCalendar.get(Calendar.DATE);
+	    int curYear =currentCalendar.get(Calendar.YEAR);  //2015
+	    int curMonth =currentCalendar.get(Calendar.MONTH)+1; //6
+	    int curDate =currentCalendar.get(Calendar.DAY_OF_MONTH);//2
+	    int curHour = currentCalendar.get(Calendar.HOUR_OF_DAY);//15
 	    int curMin = currentCalendar.get(Calendar.MINUTE);
 	    int curSec = currentCalendar.get(Calendar.SECOND);
 	    
+		int DY=2015;
+		int DM=8;
+		int DD=27;
+	    dday.set(DY,DM,DD);// D-day의 날짜를 입력합니다.
+	     
+	    long csec=currentCalendar.getTimeInMillis();
+	    long dsec=dday.getTimeInMillis();
+	    long count = dsec-csec;
+	    long hour = (count%86400000);
 
+	    
 	     cal.set(DY, DM-1, DD);
 	      nDiffOfDay = cal.get(Calendar.DAY_OF_YEAR);
 	      nTotalDate1 += nDiffOfDay;
@@ -99,10 +108,11 @@ body{
 	      nDiffOfDay = cal.get(Calendar.DAY_OF_YEAR);
 	      nTotalDate2 += nDiffOfDay;
 	      
-	      int Dday = nTotalDate1 - nTotalDate2;
+	      int day = nTotalDate1 - nTotalDate2;
+	      
 	    
 	%>
-		<label><font face="monospace" size="3"><h1>D-day <%=Dday%></h1></font></label>
+		<label><font face="monospace" size="3"><h1>D-day <%=day%></h1></font></label>
 	</div>
 	<div id="schedule_div">
 		<img src="photo/schedule22.png" id="sched" width="120px" height="80px">
