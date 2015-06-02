@@ -13,6 +13,7 @@ body{
 }</style>
 </head>
 <body>
+	<% String loginid = (String)session.getAttribute("loginID"); %>
 	<jsp:include page="header.jsp" flush="false" />
 <div id="content_div">
 	<section id="main_section">
@@ -22,12 +23,16 @@ body{
 		<form method="post" action="board_write_ok.jsp">
 			<table border="1" align="center">
 			<tr>
+			<td >작성자</td>
+			<td ><input type="text" name="userid" id="userid" size="100" value="<%= loginid %>"></td>
+			</tr>
+			<tr>
 			<td >제목</td>
 			<td ><input type="text" name="title" id="title" size="100"></td>
 			</tr>
 			<tr>
 			<td colspan="2">
-			<textarea rows="20" cols="110"></textarea></td>
+			<textarea rows="20" name="text" cols="110"></textarea></td>
 			</tr>
 			<tr>
 			<td colspan="2" align="right">
