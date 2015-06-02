@@ -66,7 +66,6 @@ body{
 		}
 		if(isLogin){
 	%>
-			로그인완료 <%=loginid %>
 			<jsp:include page="header_login.html" flush="false" />
 	<%	}
 		else{
