@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ page import = "java.text.*" %>
- <%@ page import = "java.util.*" %>
- 
+<%@ page import = "java.text.*" %>
+<%@ page import = "java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,21 +9,14 @@
 <title>Insert title here</title>
 </head>
 <STYLE type="text/css">
-
 body{font-size: 9pt;}
-
- td{padding:7px 12px;
+td{padding:7px 12px;
  	cursor: pointer;}
 
-
 a:link{text-decoration:none; color:black}
-
 a:active{text-decoration:none; color:red}
-
 a:visited{text-decoration:none; color:black}
-
 a:hover{text-decoration:none; color:red}
-
 #sche_div{
 		position: relative;
 		height: 300px;
@@ -32,7 +24,6 @@ a:hover{text-decoration:none; color:red}
 		background: white;
 		border:1px solid gray;	
 		top: 0px;
-		
 	}
 </STYLE>
 <script>

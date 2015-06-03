@@ -27,8 +27,7 @@ img{border:none;
 	#main_header > #login > button {
 		border:none;
 	}
-	
-	/*¸Þ´º*/
+
 	#menu {
 		position:relative;
 		background-color :rgba(0,0,0,0.5);
@@ -36,7 +35,7 @@ img{border:none;
 	#menu > ul {
 		position:relative;
 		overflow:hidden;
-		font-family:'¸¼Àº °íµñ'
+		font-family:'ë‚˜ëˆ”ê³ ë”•'
 	}
 	#menu > ul > li{float:left;}
 	#menu > ul > li > ul {visibility:hidden;}
@@ -57,11 +56,10 @@ img{border:none;
  <div id="header_div">
 	<header id="main_header">
 		<nav id="shortcut">
-			<input type="button" value="ÆäÀÌ½ººÏ">
-		
-			<input type="button" value="¿£ÅÍÅ×ÀÎ¸ÕÆ®">
+			<input type="button" value="facebook">
+			<input type="button" value="C-jes">
 		</nav>
-		<img src="photo/»ç¶ûÇØÀ¯.png" id="title" height="100px" onclick="location='home.jsp'">
+		<img src="photo/title.png" id="title" height="100px" onclick="location='home.jsp'">
 		<div id="login">
 			<button id="in" name="in" onclick="location='logout.jsp'"><img src="photo/logout.png" width="45px" ></button>
 		</div>
@@ -81,5 +79,5 @@ img{border:none;
 				</ul>
 			<li id="support"><a href="support.jsp">Support</a>
 		</ul>
-	</nav><!--¿©±â±îÁö°¡ ¸Þ´º-->
-</div> <!--¿©±â±îÁö°¡ Header-->
+	</nav>
+</div> 

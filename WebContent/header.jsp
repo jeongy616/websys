@@ -64,10 +64,10 @@ img{border:none;
      
          <input type="button" value="엔터테인먼트">
       </nav>
-      <img src="photo/사랑해유.png" id="title" height="100px" onclick="location='home.jsp'">
+      <img src="photo/title.png" id="title" height="100px" onclick="location='home.jsp'">
       <div id="login">
          <img src="photo/login.png" width="50px" id="in" name="in" onclick="location='login.jsp'"> 
-         <img src="photo/회원가입.png" width="60px" id="join" onclick="location='join.jsp'">
+         <img src="photo/join.png" width="60px" id="join" onclick="location='join.jsp'">
       </div>
    </header>
    <nav id="menu">

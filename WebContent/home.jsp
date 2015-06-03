@@ -78,7 +78,7 @@ body{
 		}
 		if(isLogin){
 	%>
-			<jsp:include page="header_login.html" flush="false" />
+			<jsp:include page="header_login.jsp" flush="false" />
 	<%	}
 		else{
 	%>

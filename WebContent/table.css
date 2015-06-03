@@ -1,0 +1,19 @@
+@CHARSET "EUC-KR";
+table{
+	text-align: center;
+	width:100%;
+}
+th{
+	background-color: skyblue;
+}
+td{
+	background-color:white;
+	border-top: 1px solid gray;
+	text-align: center;
+}
+a:link,a:visited,a:active {
+    color: black;
+}
+a:hover {
+    color: gray;
+}

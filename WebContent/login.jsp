@@ -15,9 +15,6 @@ body{
 <body>
 	<jsp:include page="header.jsp" flush="false" />
 	
-<div id="schedule_div">
-	<img src="photo/schedule1.png" id="sched" width="120px" height="80px" onclick="location='schedule.html'">
-</div>
 <div id="content_div">
 	<section id="main_section">
 	<form method="post" action="login_check.jsp">

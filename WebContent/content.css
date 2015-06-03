@@ -1,15 +1,8 @@
 @CHARSET "EUC-KR";
 /*º»¹®*/
-	#schedule_div{
-		padding:350px 0px 0px 0px;
-		float:left;
-	}
-	#schedule_div > img:hover{
-		opacity:0.7;
-	}
 	#content_div {
-		padding:50px;
-		padding-left:150px;
+		padding:5%;
+		padding-left:15%;
 	}
 	#main_section {
 		position:relative;

@@ -18,7 +18,7 @@
 
 		if(isLogin){
 	%>
-			<jsp:include page="header_login.html" flush="false" />
+			<jsp:include page="header_login.jsp" flush="false" />
 			<jsp:include page="letter_main.jsp" flush="false" />
 			<jsp:include page="footer.html" flush="false" />
 	<%	}

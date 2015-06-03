@@ -3,6 +3,8 @@
     <%@ page import="java.sql.*" %>
 
 <link href="content.css" rel="stylesheet" />
+<link href="table.css" rel="stylesheet" />
+
 <%
 	// paginator
 	String pageNum = request.getParameter("pageNum");
@@ -26,12 +28,12 @@
 	<img src="photo/게시판.png" height="50px">
 	<hr color="#4e4b4b"/><br/><br/>
 		<article id="board_ariticle">
-			<table border="1" width="100%">
+			<table >
 			<tr>
-			<td width="10%">번호</td>
-			<td width="70%">제목</td>
-			<td width="10%">글쓴이</td>
-			<td width="10%">조회수</td>
+			<th width="10%">번호</th>
+			<th width="60%">제목</th>
+			<th width="20%">글쓴이</th>
+			<th width="10%">조회수</th>
 			</tr>
 
 			<%
@@ -63,8 +65,8 @@
 %>
 					<tr>
 					<td width="10%"><%=rs.getString("number") %></td>
-					<td width="70%"><a href="board_show.jsp?num=<%=rs.getString("number")%>"><%=rs.getString("title") %></a></td>
-					<td width="10%"><%=rs.getString("userid") %></td>
+					<td width="60%"><a href="board_show.jsp?num=<%=rs.getString("number")%>"><%=rs.getString("title") %></a></td>
+					<td width="20%"><%=rs.getString("userid") %></td>
 					<td width="10%"><%=rs.getString("readcount") %></td>
 					</tr>
 <%

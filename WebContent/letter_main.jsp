@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
-
+<link href="table.css" rel="stylesheet" />
 <link href="content.css" rel="stylesheet" />
 <%
 	// paginator
@@ -26,12 +26,12 @@
 	<img src="photo/letter.png" height="50px">
 	<hr color="#4e4b4b"/><br/><br/>
 		<article id="board_ariticle">
-			<table border="1" width="100%">
+			<table>
 			<tr>
-			<td width="10%">번호</td>
-			<td width="70%">제목</td>
-			<td width="10%">글쓴이</td>
-			<td width="10%">조회수</td>
+			<th width="10%">번호</td>
+			<th width="60%">제목</td>
+			<th width="20%">글쓴이</td>
+			<th width="10%">조회수</td>
 			</tr>
 
 <%
