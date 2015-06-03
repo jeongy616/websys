@@ -8,11 +8,15 @@
 <title>Insert title here</title>
 <link href="background.css" rel="stylesheet" />
 <link href="content.css" rel="stylesheet" />
+<link href="show.css" rel="stylesheet" />
 <style>
 body{
 	background-color : #dae3ea
 }</style>
 </head>
+<script>
+$('#text').val().replace(/\n/g, '<br>') 
+</script>
 <body>
 	<jsp:include page="header_login.jsp" flush="false" />
 	<div id="content_div">
@@ -41,32 +45,28 @@ body{
 		if(rs.next()){
 			count = Integer.parseInt(rs.getString("readCount"))+1;
 %>
-			<table border="1" align="center" width="100%">
+			<table>
 				<tr>
-				<td >제목</td>
-				<td ><%=rs.getString("title") %></td>
-				</tr>
-				<tr>
-				<td >작성자</td>
+				<th >작성자</td>
 				<td ><%=rs.getString("userid") %></td>
-				</tr>
-				<tr>
-				<td >작성일</td>
+				<th >작성일</td>
 				<td ><%=rs.getString("date") %></td>
-				</tr>
-				<tr>
-				<td >조회수</td>
+				<th >조회수</td>
 				<td ><%=count %></td>
 				</tr>
 				<tr>
-				<td colspan="2"><%=rs.getString("text") %></td>
+				<th >제목</td>
+				<td colspan="5"><%=rs.getString("title") %></td>
 				</tr>
 				<tr>
-				<td colspan="2" align="right">
-				<a href="letter.jsp">목록</a>
+				<td colspan="6" id="text"><%=(rs.getString("text")).replace("\r\n", "<br>")%></td>
+				</tr>
+				<tr>
+				<td colspan="6" id="btn">
+				<a href="board.jsp">목록</a>
 				<input type="button" value="수정"><input type="button" value="삭제"></td>
 				</tr>
-			</table>
+				</table>
 <% 
 			String sql2 = "UPDATE letter set readCount=? where number=?";
 			pstmt = conn.prepareStatement(sql2);       

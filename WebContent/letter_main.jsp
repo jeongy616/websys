@@ -63,8 +63,8 @@
 %>
 					<tr>
 					<td width="10%"><%=rs.getString("number") %></td>
-					<td width="70%"><a href="letter_show.jsp?num=<%=rs.getString("number")%>"><%=rs.getString("title") %></a></td>
-					<td width="10%"><%=rs.getString("userid") %></td>
+					<td width="60%"><a href="letter_show.jsp?num=<%=rs.getString("number")%>"><%=rs.getString("title") %></a></td>
+					<td width="20%"><%=rs.getString("userid") %></td>
 					<td width="10%"><%=rs.getString("readcount") %></td>
 					</tr>
 <%
