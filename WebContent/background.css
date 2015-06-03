@@ -6,4 +6,8 @@ body{
 	background-color : #dae3ea;
 	overflow: scroll;
 }
+*{
+margin:0px;
+padding:0px;
+}
 

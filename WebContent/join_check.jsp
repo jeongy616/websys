@@ -29,14 +29,14 @@
 			String phone3 = request.getParameter("phone3");
 			String email1 = request.getParameter("email1");
 			String email2 = request.getParameter("email2");
-
+			String rank = "mem";
 			String email = email1+email2;
 			String phone = phone1+phone2+phone3;
 			String birth = usery+userm+userd;
 			
 			out.println(" "+ email +" " + phone +" " + birth+" " +usersex + " ");
 			
-			String sql = "INSERT INTO members values(?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO members values(?,?,?,?,?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);       
 			pstmt.setString(1,userid);
 			pstmt.setString(2,userpw);
@@ -45,6 +45,7 @@
 			pstmt.setString(5,phone);
 			pstmt.setString(6,birth);
 			pstmt.setString(7,usersex);
+			pstmt.setString(8,rank);
 			pstmt.executeUpdate();
 			
 			out.println("test 테이블에 새로운 레코드를 추가했습니다.");
