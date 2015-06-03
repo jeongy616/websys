@@ -22,11 +22,13 @@ body{
 		padding-top:140px;
 		padding-left:40px;
 	}
+
 	#schedule_div{
 		position: absolute;
 		height: 800px;
 		width: 500px;
-		background: skyblue;
+		background: white;
+		border: 1px solid black;
 		left: -500px;
 		top: 0px;
 		z-index: 1000;
@@ -37,6 +39,10 @@ body{
 		bottom: 250px;
 		cursor: pointer;
 	}
+	#cal_page{
+		position: absolute;
+		left:100px;
+			}
 </style>
 <script src="jquery-1.11.3.min.js"></script>
 <script>
@@ -83,7 +89,7 @@ body{
 	<div id="D_div">
 	<%
 		Calendar currentCalendar = Calendar.getInstance();
-	    Calendar cal = Calendar.getInstance();
+	    Calendar cal1 = Calendar.getInstance();
 	    Calendar dday= Calendar.getInstance();
 	    
 	    int nTotalDate1 = 0, nTotalDate2 = 0, nDiffOfYear = 0, nDiffOfDay = 0;
@@ -104,12 +110,12 @@ body{
 		int min = 60-curMin;
 		int sec= 60-curSec;
 	    
-	     cal.set(DY, DM-1, DD);
-	      nDiffOfDay = cal.get(Calendar.DAY_OF_YEAR);
+	     cal1.set(DY, DM-1, DD);
+	      nDiffOfDay = cal1.get(Calendar.DAY_OF_YEAR);
 	      nTotalDate1 += nDiffOfDay;
 
-	     cal.set(curYear, curMonth-1, curDate);
-	      nDiffOfDay = cal.get(Calendar.DAY_OF_YEAR);
+	     cal1.set(curYear, curMonth-1, curDate);
+	      nDiffOfDay = cal1.get(Calendar.DAY_OF_YEAR);
 	      nTotalDate2 += nDiffOfDay;
 	      
 	      int day = nTotalDate1 - nTotalDate2;
@@ -130,10 +136,16 @@ body{
 	%>
 		<label onchange=""><font face="monospace" size="1"><h1><%=day%>일<%=hour%>시간<%=min%>분<%=sec%>초 남음.</h1></font></label>
 	</div>
+	<div id="main_div">
+		<jsp:include page="home_main.jsp" flush="false" />
+	</div>
+	<jsp:include page="footer.html" flush="false" />
 	<div id="schedule_div">
 		<img src="photo/schedule22.png" id="sched" width="120px" height="80px">
+		<div id="cal_page">
+		<jsp:include page="schedule.jsp" flush="false" />
+		</div>
 	</div>
-	<jsp:include page="home_main.jsp" flush="false" />
-	<jsp:include page="footer.html" flush="false" />
+	
 </body>
 </html>
