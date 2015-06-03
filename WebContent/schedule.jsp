@@ -14,38 +14,34 @@
 body{font-size: 9pt;}
 
  td{padding:7px 12px;
- 	id:"day"}
+ 	cursor: pointer;}
 
 
-a:link{text-decoration:none; color:red}
+a:link{text-decoration:none; color:black}
 
 a:active{text-decoration:none; color:red}
 
-a:visited{text-decoration:none; color:red}
+a:visited{text-decoration:none; color:black}
 
 a:hover{text-decoration:none; color:red}
 
-#sche_table{
-		position: absolute;
-		height: 500px;
-		width: 500px;
+#sche_div{
+		position: relative;
+		height: 300px;
+		width: 270px;
 		background: white;
-		left: -500px;
+		border:1px solid gray;	
 		top: 0px;
-		z-index: 1000;
-		display: none;
+		
 	}
 </STYLE>
 <script>
-$('#day').onclick(function(){
-	$('#sche_table').display('block')
-});
-			$('#pre').click(function(){
-				$('#body').load('schedule.jsp');
-			});
-			$('#next').click(function(){
-				$('#body').load('schedule.jsp');
-			});
+ function test(a){
+	var date=a.id;
+	$('#sche_div').load('scheduledb.jsp');
+	alert(date);
+ }
+
 
 </script>
 <body>
@@ -176,7 +172,7 @@ int week =cal.get(Calendar.DAY_OF_WEEK);
 
   
 
-  out.print("<td align='center' bgcolor='"+bgColor+"'><font color='"+fontColor+"'>"+i+"</font></td>");
+  out.print("<td class='day' onclick='test(this)' align='center' id='"+ year+month+i + "' bgcolor='"+bgColor+"'><font color='"+fontColor+"'>"+i+"</font></td>");
 
   newLine++;
 
@@ -202,15 +198,9 @@ int week =cal.get(Calendar.DAY_OF_WEEK);
 
  out.print("</tr>");
 
-%></table>
-<div id="sche_table">
-<table >
-<tr><td>when</td></tr>
-<tr><td>where+title</td></tr>
-</table>
-</div>
-<%
 %>
-
+</table>
+<div id="sche_div">
+</div>
 </body>
 </html>
