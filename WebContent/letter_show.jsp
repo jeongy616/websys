@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import = "java.sql.*" %>
-
+<%@ page import = "java.sql.*" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,13 +17,13 @@ body{
 	<jsp:include page="header.jsp" flush="false" />
 	<div id="content_div">
 	<section id="main_section">
-	<img src="photo/게시판.png" height="50px">
+	<img src="photo/letter.png" height="50px">
 	<hr color="#4e4b4b"/><br/><br/>
-	<article id="board_ariticle">
+	<article id="letter_ariticle">
 <%
 	String number = request.getParameter("num");
 	int count;
-
+	
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
@@ -32,10 +31,10 @@ body{
 		String url = "jdbc:mysql://localhost:3306/websysdb";
 		String id = "root";
 		String pw = "websys";
-		Class.forName("com.mysql.jdbc.Driver");
+		Class.forName("com.mysql.jdbc.Driver"); 
 		conn=DriverManager.getConnection(url,id,pw);
 
-		String sql = "SELECT * FROM board WHERE number = ?";
+		String sql = "SELECT * FROM letter WHERE number = ?";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1,number);
 		rs = pstmt.executeQuery();
@@ -64,16 +63,16 @@ body{
 				</tr>
 				<tr>
 				<td colspan="2" align="right">
-				<a href="board.jsp">목록</a>
+				<a href="letter.jsp">목록</a>
 				<input type="button" value="수정"><input type="button" value="삭제"></td>
 				</tr>
-				</table>
-<%
-		String sql2 = "UPDATE board set readCount=? where number=?";
-		pstmt = conn.prepareStatement(sql2);
-		pstmt.setInt(1,count);
-		pstmt.setString(2,number);
-		pstmt.executeUpdate();
+			</table>
+<% 
+			String sql2 = "UPDATE letter set readCount=? where number=?";
+			pstmt = conn.prepareStatement(sql2);       
+			pstmt.setInt(1,count);
+			pstmt.setString(2,number);
+			pstmt.executeUpdate();
 		}
 	}catch(SQLException ex){
 		%>오류<%=ex %>

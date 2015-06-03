@@ -10,7 +10,7 @@
 		pageNum = "1";
 	}
 
-	int listSize = 3;
+	int listSize = 10;
 	int currentPage = Integer.parseInt(pageNum);
 	int nextPage = currentPage + 1;
 	int startRow = (currentPage - 1) * listSize + 1;
@@ -56,14 +56,14 @@
 
 		// ResultSet에 레코드가 존재할 때
 		if(lastRow > 0) {
-			sql = "SELECT * FROM board";
+			sql = "SELECT * FROM board order by number DESC";
 			rs = stmt.executeQuery(sql);
 			for(i=1;rs.next(); i++){
 				if(i >= startRow && i <=endRow){
 %>
 					<tr>
 					<td width="10%"><%=rs.getString("number") %></td>
-					<td width="70%"><a href="board_show.jsp"><%=rs.getString("title") %></a></td>
+					<td width="70%"><a href="board_show.jsp?num=<%=rs.getString("number")%>"><%=rs.getString("title") %></a></td>
 					<td width="10%"><%=rs.getString("userid") %></td>
 					<td width="10%"><%=rs.getString("readcount") %></td>
 					</tr>
@@ -101,13 +101,13 @@
 
 		if(currentPage > 1) {
 %>
-		<a href="board_main.jsp?pageNum=<%=currentPage-1%>">[이전]</a>
+		<a href="board.jsp?pageNum=<%=currentPage-1%>">[이전]</a>
 <%
 		}
 		// 레코드 수에 따라 쪽번호를 매긴다.
 		while(setPage <= lastPage) {
 %>
-				<a href="board_main.jsp?pageNum=<%=setPage%>">[<%=setPage%>]</a>
+				<a href="board.jsp?pageNum=<%=setPage%>">[<%=setPage%>]</a>
 <%
 			setPage = setPage + 1;
 		}
@@ -115,7 +115,7 @@
 		// 현재 쪽번호에 따라 다음 쪽의 번호를 파라메터로 넘겨준다.
 		if(lastPage > currentPage) {
 %>
-		<a href="board_main.jsp?pageNum=<%=currentPage+1%>">[다음]</a>
+		<a href="board.jsp?pageNum=<%=currentPage+1%>">[다음]</a>
 <%
 		}
 	}
