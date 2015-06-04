@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+
 <STYLE type="text/css">
 body{font-size: 9pt;}
 td{padding:7px 12px;
@@ -27,13 +28,19 @@ a:hover{text-decoration:none; color:red}
 	}
 </STYLE>
 <script>
- function test(a){
+ function show(a){
 	var date=a.id;
-	$('#sche_div').load('scheduledb.jsp');
-	alert(date);
+	var url = 'scheduledb.jsp?date=' + date;
+	$('#sche_div').load(url);
  }
-
-
+ 
+ function change(a,b){
+	var pyear = a;
+	var pmonth = b;
+	var url = 'schedule.jsp?month=' + pmonth;
+	 $('#cal_page').load(url);
+	 
+ }
 </script>
 <body>
 <% 
@@ -50,10 +57,12 @@ int nowDay=cal.get(Calendar.DAY_OF_MONTH);
 //클라이언트가 선택하여 넘어온 날짜
 String strYear=request.getParameter("year");
 String strMonth=request.getParameter("month");
-
+System.out.println(strYear);
+System.out.println(strMonth);
 //표시할 달력의 년,월
+
 int year=nowYear;
-int month =nowMonth;
+int month=nowMonth;
 
 if(strYear!=null){// 값이 없으면
 	year=Integer.parseInt(strYear);//클라이언트가 선택한 값을 입력
@@ -95,11 +104,11 @@ int week =cal.get(Calendar.DAY_OF_WEEK);
 
 <td align="center">
 
-<a href="schedule.jsp?year=<%=preYear %>&month=<%=preMonth %>" id="pre">◀</a>
+<button onclick="change(<%=preYear%>,<%=preMonth%>)" id="pre">◀</button>
 
 <b>&nbsp;<%=year %>년&nbsp;&nbsp;<%=month %>월</b>
 
-<a href="schedule.jsp?year=<%=nextYear %>&month=<%=nextMonth %>" id="next">▶</a>
+<button onclick="change(<%=nextYear %>,<%=nextMonth%>)" id="next">▶</button>
 
 </td>
 
@@ -139,32 +148,18 @@ int week =cal.get(Calendar.DAY_OF_WEEK);
 
 <%
 
- //한주가 지나면 줄바꿈을 할 것이다.
-
  int newLine=0;
-
  out.print("<tr height='20'>");
-
  for(int i=1;i<week;i++){
-
   out.print("<td bgcolor='#ffffff'>&nbsp;</td>");
-
   newLine++;
-
  }
-
  
-
  for(int i=startDay;i<=endDay;i++){//1일 부터 말일까지 반복
-
  String fontColor=(newLine==0)?"red":(newLine==6)?"blue":"black";
-
  String bgColor=(nowYear==year)&&(nowMonth==month)&&(nowDay==i)?"#e6e6e6":"#fff";//오늘날짜음영
-
   
-
-  out.print("<td class='day' onclick='test(this)' align='center' id='"+ year+month+i + "' bgcolor='"+bgColor+"'><font color='"+fontColor+"'>"+i+"</font></td>");
-
+  out.print("<td class='day' onclick='show(this)' align='center' id='"+ year+month+i + "' bgcolor='"+bgColor+"'><font color='"+fontColor+"'>"+i+"</font></td>");
   newLine++;
 
   if(newLine==7&&i!=endDay){//7일째거나 말일이면 달력 줄바꿈이 일어난다.
@@ -192,6 +187,7 @@ int week =cal.get(Calendar.DAY_OF_WEEK);
 %>
 </table>
 <div id="sche_div">
+
 </div>
 </body>
 </html>

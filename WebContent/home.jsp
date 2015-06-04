@@ -143,7 +143,7 @@ body{
 	<div id="schedule_div">
 		<img src="photo/schedule22.png" id="sched" width="120px" height="80px">
 		<div id="cal_page">
-		<jsp:include page="schedule.jsp" flush="false" />
+			<jsp:include page="schedule.jsp" flush="false" />
 		</div>
 	</div>
 	

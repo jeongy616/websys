@@ -10,7 +10,7 @@
 	<script src="jquery-1.11.3.min.js"></script>
     <script>
     $(function(){
-    	$("#home").hover(function() {
+    	$("#home").mouseover(function() {
     		$(this).html('<a href="#" >홈</a>');
     	},function() {
     		$(this).html('<a href="#" >Home</a>');
