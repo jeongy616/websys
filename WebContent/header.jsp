@@ -11,7 +11,7 @@
 		<img src="photo/title.png" id="title" height="100px" onclick="location='home.jsp'">
 		<div id="login">
 			<button id="in" name="in" onclick="location='login.jsp'"><img src="photo/login.png" width="45px" ></button>
-			<button id="join" name="join" onclick="location='join.jsp'"><img src="photo/join.png" width="45px" ></button>
+			<button id="join" name="join" onclick="location='join.jsp'"><img src="photo/join.png" width="50px" ></button>
 		</div>
 	</header>
 	<nav id="menu">
