@@ -26,6 +26,7 @@ body{
 <%
 	String loginid = (String)session.getAttribute("loginID");
 	String number = request.getParameter("num");
+	session.setAttribute("num", number);
 	int count;
 
 	Connection conn = null;
