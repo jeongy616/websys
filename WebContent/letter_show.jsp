@@ -25,7 +25,9 @@ $('#text').val().replace(/\n/g, '<br>')
 	<hr color="#4e4b4b"/><br/><br/>
 	<article id="letter_ariticle">
 <%
+	String loginid = (String)session.getAttribute("loginID");
 	String number = request.getParameter("num");
+	session.setAttribute("num", number);
 	int count;
 	
 	Connection conn = null;
@@ -44,7 +46,32 @@ $('#text').val().replace(/\n/g, '<br>')
 		rs = pstmt.executeQuery();
 		if(rs.next()){
 			count = Integer.parseInt(rs.getString("readCount"))+1;
+			String userid = rs.getString("userid");
 %>
+<script>
+		function edit(userid){
+			<%
+			if(loginid.equals(userid)){
+			%>
+				location.href='letter_edit.jsp';
+			<%	}
+			else{
+			%>
+				alert("회원님의 게시글이 아닙니다.");
+			<%	}%>
+		}
+		function b_delete(userid){
+			<%
+			if(loginid.equals(userid)){
+			%>
+				location.href='letter_delete.jsp';
+			<%	}
+			else{
+			%>
+				alert("회원님의 게시글이 아닙니다.");
+			<%	}%>
+		}
+</script>
 			<table>
 				<tr>
 				<th >작성자</td>
@@ -63,8 +90,9 @@ $('#text').val().replace(/\n/g, '<br>')
 				</tr>
 				<tr>
 				<td colspan="6" id="btn">
-				<a href="board.jsp">목록</a>
-				<input type="button" value="수정"><input type="button" value="삭제"></td>
+				<a href="letter.jsp">목록</a>
+				<input type="button" value="수정" onclick="edit(<%=userid%>)"><input type="button" value="삭제" onclick="l_delete(<%=userid%>)">
+				</td>
 				</tr>
 				</table>
 <% 

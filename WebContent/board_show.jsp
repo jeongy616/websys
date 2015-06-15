@@ -63,7 +63,7 @@ body{
 			<%
 			if(loginid.equals(userid)){
 			%>
-				location.href='board_edit.jsp';
+				location.href='board_delete.jsp';
 			<%	}
 			else{
 			%>
@@ -90,7 +90,8 @@ body{
 				<tr>
 				<td colspan="6" id="btn">
 				<a href="board.jsp">목록</a>
-				<input type="button" value="수정" onclick="edit(<%=userid%>)"><input type="button" value="삭제" onclick="b_delete(<%=userid%>)"></td>
+				<input type="button" value="수정" onclick="edit(<%=userid%>)"><input type="button" value="삭제" onclick="b_delete(<%=userid%>)">
+				</td>
 				</tr>
 				</table>
 <%
