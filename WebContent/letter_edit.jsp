@@ -16,6 +16,7 @@ body{
 </head>
 
 <body>
+	<script>function goback(){history.go(-1);}</script>
 	<jsp:include page="header_login.jsp" flush="false" />
 	<div id="content_div">
 	<section id="main_section">
@@ -62,7 +63,7 @@ body{
 			<tr>
 			<td colspan="2" align="right">
 			<input type="submit" value="수정완료">
-			<input type="button" value="수정취소">
+			<input type="button" value="수정취소" onclick="goback()">
 			</td>
 			</tr>
 			</table>
