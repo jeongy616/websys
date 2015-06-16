@@ -59,11 +59,17 @@ $('#text').val().replace(/\n/g, '<br>')
 				alert("회원님의 게시글이 아닙니다.");
 			<%	}%>
 		}
-		function b_delete(userid){
+		function l_delete(userid){
 			<%
 			if(loginid.equals(userid)){
 			%>
-				location.href='letter_delete.jsp?num=<%=number%>';
+				q=confirm("삭제하시겠습니까?");
+				if(q){
+					location.href='letter_delete.jsp?num=<%=number%>';
+				}
+				else{
+					alert("삭제가 취소되었습니다.");
+				}
 			<%	}
 			else{
 			%>

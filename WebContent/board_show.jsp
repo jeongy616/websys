@@ -62,7 +62,13 @@ body{
 			<%
 			if(loginid.equals(userid)){
 			%>
-				location.href='board_delete.jsp?num=<%=number%>';
+				q=confirm("삭제하시겠습니까?");
+				if(q){
+					location.href='board_delete.jsp?num=<%=number%>';
+				}
+				else{
+					alert("삭제가 취소되었습니다.");
+				}
 			<%	}
 			else{
 			%>
