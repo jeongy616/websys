@@ -128,7 +128,13 @@
 			<br><br>
 			<div align ="center">
 			<img src="photo/검색Q.png" width="20px" height="20px">
-			<input type="text" size="20" name="search" height="30px"> 
+			<select name="search">
+				<option value="all">전체</option>
+				<option value="writer">글쓴이</option>
+				<option value="title">제목</option>
+				<option value="content">내용</option>
+			</select>
+			<input type="text" size="20" name="search_text" height="30px"> 
 			<img src="photo/검색.png" width="30px" height="20px">
 			</div>
 		</article>
