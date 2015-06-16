@@ -27,7 +27,6 @@ $('#text').val().replace(/\n/g, '<br>')
 <%
 	String loginid = (String)session.getAttribute("loginID");
 	String number = request.getParameter("num");
-	session.setAttribute("num", number);
 	int count;
 	
 	Connection conn = null;
@@ -53,7 +52,7 @@ $('#text').val().replace(/\n/g, '<br>')
 			<%
 			if(loginid.equals(userid)){
 			%>
-				location.href='letter_edit.jsp';
+				location.href='letter_edit.jsp?num=<%=number%>';
 			<%	}
 			else{
 			%>
@@ -64,7 +63,7 @@ $('#text').val().replace(/\n/g, '<br>')
 			<%
 			if(loginid.equals(userid)){
 			%>
-				location.href='letter_delete.jsp';
+				location.href='letter_delete.jsp?num=<%=number%>';
 			<%	}
 			else{
 			%>

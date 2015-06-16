@@ -25,7 +25,8 @@ body{
 	<article id="board_ariticle">
 <%
 	String loginid = (String)session.getAttribute("loginID");
-	String number = (String)session.getAttribute("num");
+	String number = request.getParameter("num");
+	request.setCharacterEncoding("UTF-8");
 	int count;
 
 	Connection conn = null;
@@ -46,7 +47,7 @@ body{
 			count = Integer.parseInt(rs.getString("readCount"))+1;
 			String userid = rs.getString("userid");
 %>
-		<form method="post" action="board_edit_ok.jsp">
+		<form method="post" action="board_edit_ok.jsp?num=<%=number%>">
 			<table border="1" align="center">
 			<tr>
 			<td >작성자</td>

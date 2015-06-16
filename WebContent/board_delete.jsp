@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import = "java.sql.*" %>                       
+<%@ page import = "java.sql.*" %>
 <%@ page import = "java.util.Date" %>
 <!DOCTYPE html>
 <html>
@@ -10,33 +10,36 @@
 </head>
 <body>
 <%
-	String numString = (String)session.getAttribute("num");
-	int number = Integer.parseInt(numString);
+	String number = request.getParameter("num");
 	request.setCharacterEncoding("UTF-8");
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 
 	try{
-		Class.forName("com.mysql.jdbc.Driver"); 
+		Class.forName("com.mysql.jdbc.Driver");
 		conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/websysdb","root","websys");
 
-		String sql2 = "DELETE FROM board WHERE number=?";
-		pstmt = conn.prepareStatement(sql2);       
-		pstmt.setInt(1,number);
+		String sql = "DELETE FROM board WHERE number=?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1,number);
 		pstmt.executeUpdate();
-		session.removeAttribute("num");
-	%>	
+
+		String sql2 = "UPDATE board SET number=number-? WHERE number>?";
+		pstmt = conn.prepareStatement(sql2);
+		pstmt.setInt(1,1);
+		pstmt.setString(2,number);
+		pstmt.executeUpdate();
+	%>
 		<script>alert("삭제되었습니다.");
 			location.href="board.jsp";</script>
 	<%
-		session.removeAttribute("num");
-	}catch(Exception e){          
+	}catch(Exception e){
 		out.println("테이블 호출에 실패했습니다."+e);
-	}finally{          
+	}finally{
 		if(rs != null) try{rs.close();}catch(SQLException sqle){}
 		if(pstmt != null) try{pstmt.close();}catch(SQLException sqle){}
-		if(conn != null) try{conn.close();}catch(SQLException sqle){} 
+		if(conn != null) try{conn.close();}catch(SQLException sqle){}
 	}
 %>
 

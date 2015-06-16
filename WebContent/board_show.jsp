@@ -26,7 +26,6 @@ body{
 <%
 	String loginid = (String)session.getAttribute("loginID");
 	String number = request.getParameter("num");
-	session.setAttribute("num", number);
 	int count;
 
 	Connection conn = null;
@@ -52,7 +51,7 @@ body{
 			<%
 			if(loginid.equals(userid)){
 			%>
-				location.href='board_edit.jsp';
+				location.href='board_edit.jsp?num=<%=number%>';
 			<%	}
 			else{
 			%>
@@ -63,7 +62,7 @@ body{
 			<%
 			if(loginid.equals(userid)){
 			%>
-				location.href='board_delete.jsp';
+				location.href='board_delete.jsp?num=<%=number%>';
 			<%	}
 			else{
 			%>

@@ -10,8 +10,6 @@
 </head>
 <body>
 <%
-	String numString = (String)session.getAttribute("num");
-	int number = Integer.parseInt(numString);
 	request.setCharacterEncoding("UTF-8");
 	Connection conn = null;
 	PreparedStatement pstmt = null;
@@ -24,20 +22,19 @@
 		String title = request.getParameter("title");
 		String text = request.getParameter("text");
 		Date d = new Date();
+		String number = request.getParameter("num");
 
 		String sql2 = "UPDATE board SET title=?,date=?,text=? WHERE number=?";
 		pstmt = conn.prepareStatement(sql2);       
 		pstmt.setString(1,title);
 		pstmt.setString(2,d.toString());
 		pstmt.setString(3,text);
-		pstmt.setInt(4,number);
+		pstmt.setString(4,number);
 		pstmt.executeUpdate();
-		session.removeAttribute("num");
 	%>	
 		<script>alert("수정완료 되었습니다.");
 			location.href="board.jsp";</script>
 	<%
-		session.removeAttribute("num");
 	}catch(Exception e){          
 		out.println("테이블 호출에 실패했습니다."+e);
 	}finally{          
