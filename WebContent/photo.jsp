@@ -15,7 +15,7 @@ body{
 
 .thumbnail {
 	width: 150px;
-	height: 100px;
+	height: 150px;
 	margin-left: 20px;
 	cursor: pointer;
 }
@@ -25,15 +25,22 @@ body{
 
 	$(function() {
 		$('.thumbnail').click(function() {
-			location.href = this.src;
+			var j =this.src;
+			var i =window.open("","","width=300,height=400");
+			i.document.write("<head><title> View Image</title></head><body onclick='self.close()' style='cursor:hand'> <img src="+j+" width='280'>");
 		});
 	});
+	function upload(){
+		window.open('photo_upload.jsp','',"width=550, height=300");
+	}
 	
 </script>
 </head>
 <body>
 	<jsp:include page="header.jsp" flush="false" />
-
+<div id="photo_upload">
+	<button id="photo_up" onclick="upload()">올리기</button>
+</div>
 <div id="content_div">
 	<%
 		File folder = new File(application.getRealPath("/photo/images"));
@@ -44,6 +51,7 @@ body{
 	    }
 	%>
 </div>
+
   
 	<jsp:include page="footer.html" flush="false" />
 </body>

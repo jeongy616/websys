@@ -48,7 +48,6 @@ body{
 			String userid = rs.getString("userid");
 %>
 <script>
-
 		function edit(userid){
 			<%
 			if(loginid.equals(userid)){
@@ -77,18 +76,7 @@ body{
 				alert("회원님의 게시글이 아닙니다.");
 			<%	}%>
 		}
-		function com_Check(){
-			if(textnum == null)
-				return false;
-			else
-				retrun true;
-		}
-		function com_edit(){
-			
-		}
-		function com_del(){
-			
-		}
+
 </script>
 			<table>
 				<tr>
@@ -109,7 +97,8 @@ body{
 				<tr>
 				<td colspan="6" id="btn">
 				<a href="board.jsp">목록</a>
-				<input type="button" value="수정" onclick="edit(<%=userid%>)"><input type="button" value="삭제" onclick="b_delete(<%=userid%>)">
+				<input type="button" value="수정" onclick="edit(<%=userid%>)" >
+				<input type="button" value="삭제" onclick="b_delete(<%=userid%>)">
 				</td>
 				</tr>
 				</table>
@@ -121,7 +110,13 @@ body{
 		pstmt.executeUpdate();
 		}
 		%>
-	<form  name="comment" action="comment_ok.jsp" Method="post" OnSubmit='return com_Check();'>
+		<script>
+		function com_Check(){
+				location.href='comment_ok.jsp?num=<%=textnum%>'
+
+		}
+		</script>
+		<form name="com_form" action="comment_ok.jsp">
 		<table  class="com">
 		<tr class="com">
 		<th>코멘트를 작성해주세요.</th>
@@ -133,11 +128,9 @@ body{
 		<td class="com">
 		<input type="hidden" name="userid" value="<%=rs.getString("userid")%>" >
 		<input type="hidden" name="textnum" value="<%=textnum %>" >
-		<input type="submit" value="작성">
+		<input type="submit" value="작성" >
 		</td>
-		</tr>
-		</table>
-	</form>
+		</tr></form>
 		<% 
 		String sql3 = "SELECT * FROM comment WHERE textnum = ?";
 		pstmt = conn.prepareStatement(sql3);
@@ -146,7 +139,27 @@ body{
 
 		while(rs.next()){
 			String userid = rs.getString("userid");
+			String comnumber = rs.getString("number");
 			%>
+			<script>
+			function com_del(userid){
+				<%
+				if(loginid.equals(userid)){
+				%>
+					q=confirm("삭제하시겠습니까?");
+					if(q){
+						location.href='comment_del.jsp?num=<%=comnumber%>';
+					}
+					else{
+						alert("삭제가 취소되었습니다.");
+					}
+				<%	}
+				else{
+				%>
+					alert("회원님의 게시글이 아닙니다.");
+				<%	}%>
+			}
+			</script>
 			<table>
 				<tr>
 				<th >작성자</td>
@@ -159,11 +172,11 @@ body{
 				</tr>
 				<tr>
 				<td colspan="4" id="btn">
-				<input type="button" value="수정" onclick="com_edit(<%=userid%>)"><input type="button" value="삭제" onclick="com_delete(<%=userid%>)">
+				<input type="button" value="삭제" onclick="com_del(<%=userid%>)">
+				<input type="hidden" vaule="<%=number %>" name="number">
 				</td>
 				</tr>
 				</table>
-			
 				<%
 		}
 	}catch(SQLException ex){
