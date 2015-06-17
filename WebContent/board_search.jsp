@@ -29,6 +29,7 @@
 <div id="content_div">
 	<section id="main_section">
 	<img src="photo/게시판.png" height="50px">
+	<h1>검색결과</h1>
 	<hr color="#4e4b4b"/><br/><br/>
 		<article id="board_ariticle">
 			<table >

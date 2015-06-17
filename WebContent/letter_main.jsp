@@ -125,7 +125,7 @@
 			</div>
 			<br><br>
 			<div align ="center">
-			<form action=letter_search.jsp>
+			<form action=search.jsp>
 			<img src="photo/검색Q.png" width="20px" height="20px">
 			<select name="key">
 				<option value="all">전체</option>
@@ -135,6 +135,7 @@
 			</select>
 			<input type="text" size="20" name="search" height="30px"> 
 			<img src="photo/검색.png" width="30px" height="20px" onclick=submit()>
+			<input STYLE="display: none;" type="text" name="state" value="letter">
 			</form>
 			</div>
 		</article>

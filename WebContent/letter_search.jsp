@@ -28,9 +28,9 @@
 
 <div id="content_div">
 	<section id="main_section">
-	<img src="photo/게시판.png" height="50px">
+	<img src="photo/letter.png" height="50px">
 	<hr color="#4e4b4b"/><br/><br/>
-		<article id="board_ariticle">
+		<article id="letter_ariticle">
 			<table >
 			<tr>
 			<th width="10%">번호</th>
@@ -45,13 +45,13 @@
 			ResultSet rs = null;
 
 	try{
-		String url = "jdbc:mysql://localhost:3306/websysdb";
-		String id = "root";
-		String pw = "websys";
+		String url = "jdbc:mysql://203.252.202.75:3306/loveudb";
+		String id = "loveudbuser";
+		String pw = "loveudbpass";
 		Class.forName("com.mysql.jdbc.Driver");
 		conn=DriverManager.getConnection(url,id,pw);
 
-		String sql = "SELECT count(*) FROM board";
+		String sql = "SELECT count(*) FROM letter";
 		stmt = conn.createStatement();
 		rs = stmt.executeQuery(sql);
 
@@ -62,10 +62,10 @@
 		// ResultSet에 레코드가 존재할 때
 		if(lastRow > 0) {
 			if(key.equals("all")){
-				sql = "SELECT * FROM board WHERE title like '%"+search+"%' or userId like '%"+search+"%' or text like '%"+search+"%' order by number DESC";
+				sql = "SELECT * FROM letter WHERE title like '%"+search+"%' or userId like '%"+search+"%' or text like '%"+search+"%' order by number DESC";
 			}
 			else{
-				sql = "SELECT * FROM board WHERE "+key+" like '%"+search+"%' order by number DESC";
+				sql = "SELECT * FROM letter WHERE "+key+" like '%"+search+"%' order by number DESC";
 			}
 			rs = stmt.executeQuery(sql);
 			for(i=1;rs.next(); i++){
@@ -73,7 +73,7 @@
 %>
 					<tr>
 					<td width="10%"><%=rs.getString("number") %></td>
-					<td width="60%"><a href="board_show.jsp?num=<%=rs.getString("number")%>"><%=rs.getString("title") %></a></td>
+					<td width="60%"><a href="letter_show.jsp?num=<%=rs.getString("number")%>"><%=rs.getString("title") %></a></td>
 					<td width="20%"><%=rs.getString("userid") %></td>
 					<td width="10%"><%=rs.getString("readcount") %></td>
 					</tr>
@@ -111,13 +111,13 @@
 
 		if(currentPage > 1) {
 %>
-		<a href="board.jsp?pageNum=<%=currentPage-1%>">[이전]</a>
+		<a href="letter.jsp?pageNum=<%=currentPage-1%>">[이전]</a>
 <%
 		}
 		// 레코드 수에 따라 쪽번호를 매긴다.
 		while(setPage <= lastPage) {
 %>
-				<a href="board.jsp?pageNum=<%=setPage%>">[<%=setPage%>]</a>
+				<a href="letter.jsp?pageNum=<%=setPage%>">[<%=setPage%>]</a>
 <%
 			setPage = setPage + 1;
 		}
@@ -125,13 +125,13 @@
 		// 현재 쪽번호에 따라 다음 쪽의 번호를 파라메터로 넘겨준다.
 		if(lastPage > currentPage) {
 %>
-		<a href="board.jsp?pageNum=<%=currentPage+1%>">[다음]</a>
+		<a href="letter.jsp?pageNum=<%=currentPage+1%>">[다음]</a>
 <%
 		}
 	}
 %>
 			<div align="right">
-			<img src="photo/글쓰기.png" width="70px" onclick="location='board_write_main.jsp'">
+			<img src="photo/글쓰기.png" width="70px" onclick="location='letter_write_main.jsp'">
 			</div>
 			<br><br>
 			<div align ="center">
