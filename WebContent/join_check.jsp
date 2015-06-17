@@ -14,8 +14,11 @@
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try{
-			Class.forName("com.mysql.jdbc.Driver"); 
-			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/websysdb","root","websys");
+			String url = "jdbc:mysql://203.252.202.75:3306/loveudb";
+			String id = "loveudbuser";
+			String pw = "loveudbpass";
+			Class.forName("com.mysql.jdbc.Driver");
+			conn=DriverManager.getConnection(url,id,pw);
 			
 			String userid = request.getParameter("userid");
 			String userpw = request.getParameter("userpw");

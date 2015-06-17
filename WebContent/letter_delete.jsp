@@ -17,8 +17,11 @@
 	ResultSet rs = null;
 
 	try{
+		String url = "jdbc:mysql://203.252.202.75:3306/loveudb";
+		String id = "loveudbuser";
+		String pw = "loveudbpass";
 		Class.forName("com.mysql.jdbc.Driver");
-		conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/websysdb","root","websys");
+		conn=DriverManager.getConnection(url,id,pw);
 
 		String sql = "DELETE FROM letter WHERE number=?";
 		pstmt = conn.prepareStatement(sql);

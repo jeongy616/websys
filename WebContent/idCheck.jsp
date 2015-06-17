@@ -16,10 +16,10 @@
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try{
-			String url = "jdbc:mysql://localhost:3306/websysdb";
-			String id = "root";
-			String pw = "websys";
-			Class.forName("com.mysql.jdbc.Driver"); 
+			String url = "jdbc:mysql://203.252.202.75:3306/loveudb";
+			String id = "loveudbuser";
+			String pw = "loveudbpass";
+			Class.forName("com.mysql.jdbc.Driver");
 			conn=DriverManager.getConnection(url,id,pw);
 			
 			String userid = request.getParameter("id");

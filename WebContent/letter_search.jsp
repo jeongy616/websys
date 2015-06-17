@@ -6,6 +6,9 @@
 <link href="table.css" rel="stylesheet" />
 
 <%
+	String key = request.getParameter("key");
+	String search = request.getParameter("search");
+
 	// paginator
 	String pageNum = request.getParameter("pageNum");
 	if(pageNum == null){
@@ -42,9 +45,9 @@
 			ResultSet rs = null;
 
 	try{
-		String url = "jdbc:mysql://203.252.202.75:3306/loveudb";
-		String id = "loveudbuser";
-		String pw = "loveudbpass";
+		String url = "jdbc:mysql://localhost:3306/websysdb";
+		String id = "root";
+		String pw = "websys";
 		Class.forName("com.mysql.jdbc.Driver");
 		conn=DriverManager.getConnection(url,id,pw);
 
@@ -58,7 +61,12 @@
 
 		// ResultSet에 레코드가 존재할 때
 		if(lastRow > 0) {
-			sql = "SELECT * FROM board order by number DESC";
+			if(key.equals("all")){
+				sql = "SELECT * FROM board WHERE title like '%"+search+"%' or userId like '%"+search+"%' or text like '%"+search+"%' order by number DESC";
+			}
+			else{
+				sql = "SELECT * FROM board WHERE "+key+" like '%"+search+"%' order by number DESC";
+			}
 			rs = stmt.executeQuery(sql);
 			for(i=1;rs.next(); i++){
 				if(i >= startRow && i <=endRow){
@@ -127,18 +135,15 @@
 			</div>
 			<br><br>
 			<div align ="center">
-			<form action=search.jsp>
 			<img src="photo/검색Q.png" width="20px" height="20px">
-			<select name="key">
+			<select name="search">
 				<option value="all">전체</option>
-				<option value="userId">글쓴이</option>
+				<option value="writer">글쓴이</option>
 				<option value="title">제목</option>
-				<option value="text">내용</option>
+				<option value="content">내용</option>
 			</select>
-			<input type="text" size="20" name="search" height="30px"> 
-			<img src="photo/검색.png" width="30px" height="20px" onclick=submit()>
-			<input STYLE="display: none;" type="text" name="state" value="board">
-			</form>
+			<input type="text" size="20" name="search_text" height="30px"> 
+			<img src="photo/검색.png" width="30px" height="20px">
 			</div>
 		</article>
 	</section>
