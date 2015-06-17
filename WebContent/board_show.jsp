@@ -26,6 +26,7 @@ body{
 <%
 	String loginid = (String)session.getAttribute("loginID");
 	String number = request.getParameter("num");
+	String textnum = number;
 	int count;
 
 	Connection conn = null;
@@ -47,6 +48,7 @@ body{
 			String userid = rs.getString("userid");
 %>
 <script>
+
 		function edit(userid){
 			<%
 			if(loginid.equals(userid)){
@@ -74,6 +76,18 @@ body{
 			%>
 				alert("회원님의 게시글이 아닙니다.");
 			<%	}%>
+		}
+		function com_Check(){
+			if(textnum == null)
+				return false;
+			else
+				retrun true;
+		}
+		function com_edit(){
+			
+		}
+		function com_del(){
+			
 		}
 </script>
 			<table>
@@ -105,6 +119,52 @@ body{
 		pstmt.setInt(1,count);
 		pstmt.setString(2,number);
 		pstmt.executeUpdate();
+		}
+		%>
+	<form  name="comment" action="comment_ok.jsp" Method="post" OnSubmit='return com_Check();'>
+		<table  class="com">
+		<tr class="com">
+		<th>코멘트를 작성해주세요.</th>
+		</tr>
+		<tr class="com">
+		<td class="com"><textarea rows="5" name="comment" cols="120" border="0"></textarea></td>
+		</tr>
+		<tr class="com">
+		<td class="com">
+		<input type="hidden" name="userid" value="<%=rs.getString("userid")%>" >
+		<input type="hidden" name="textnum" value="<%=textnum %>" >
+		<input type="submit" value="작성">
+		</td>
+		</tr>
+		</table>
+	</form>
+		<% 
+		String sql3 = "SELECT * FROM comment WHERE textnum = ?";
+		pstmt = conn.prepareStatement(sql3);
+		pstmt.setString(1,textnum);
+		rs = pstmt.executeQuery();
+
+		while(rs.next()){
+			String userid = rs.getString("userid");
+			%>
+			<table>
+				<tr>
+				<th >작성자</td>
+				<td ><%=rs.getString("userid") %></td>
+				<th >작성일</td>
+				<td ><%=rs.getString("date") %></td>
+				</tr>
+				<tr>
+				<td colspan="4" id="comment"><%=(rs.getString("comment")).replace("\r\n", "<br>")%></td>
+				</tr>
+				<tr>
+				<td colspan="4" id="btn">
+				<input type="button" value="수정" onclick="com_edit(<%=userid%>)"><input type="button" value="삭제" onclick="com_delete(<%=userid%>)">
+				</td>
+				</tr>
+				</table>
+			
+				<%
 		}
 	}catch(SQLException ex){
 		%>오류<%=ex %>

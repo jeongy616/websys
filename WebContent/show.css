@@ -23,3 +23,10 @@ td{
 	text-align: right;
 	background-color: #dae3ea;
 }
+.class{
+	width:100%;
+	text-align: center;
+	background-color:white;
+	border-top: 1px solid gray;
+	text-align: left;
+}
