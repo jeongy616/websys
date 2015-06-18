@@ -24,7 +24,7 @@ body{
 	padding-bottom: 15px;
 }
 #photo_up_no{
-	cursor:not-allowed;
+	cursor: url(photo/youpointer.png) 2 2, pointer;
 }
 </style>
 <script src="jquery-1.11.3.min.js"></script>
@@ -80,6 +80,12 @@ body{
 	</div><br>
 	<%
 				}
+				else{
+					%>
+					<div class="photo_upload">
+						<button id="photo_up_no" onclick="upload()" disabled="disabled"><img src="photo/Upload.jpg"width="70px"></button>
+					</div>
+					<%}
 			}
 		}
 		else{

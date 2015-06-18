@@ -197,8 +197,8 @@ function imgSlideTicker() {
 </script>
 <style>
 /*본문*/
-	#D_div{
-		cursor: pointer;
+	.D_div{
+		cursor: url(photo/tearpointer),pointer;
 	}
 	#content_div{
 	width:70%;
@@ -298,7 +298,7 @@ setInterval(function () {
 	<%=loginid%> 님 환영합니다.
 	<button id="logout" name="logout" onclick="location='logout.jsp'" ><img src="photo/Logoutt.png" width="45px"></button>
 	</div>
-	<div id="D_div">
+	<div class="D_div">
 		<label ><%=day%>일<%=hour%>시간<%=min%>분<%=sec%>초 남음.
 	</div>
 	<%}else{
@@ -310,7 +310,7 @@ setInterval(function () {
 		<input type="image" src="photo/Join.jpg" border="0" width="45px" >
 	</form>
 	</div>
-	<div id="D_div">
+	<div class="D_div">
 		<label ><%=day%>일<%=hour%>시간<%=min%>분<%=sec%>초 남음.
 	</div>
 
