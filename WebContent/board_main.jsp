@@ -122,12 +122,26 @@
 		}
 	}
 %>
+	<script>
+		function searchfun(){
+			var key = document.search_form.key.value;
+			var search = document.search_form.search.value;
+			urlString = "search.jsp?key="+key+"&search="+search+"&state=board"
+			if(search == ""){
+				alert("검색어를 입력해 주세요.");
+			}
+			else{
+				location.href=urlString;
+			}
+		}
+	
+	</script>
 			<div align="right">
 			<img src="photo/글쓰기.png" width="70px" onclick="location='board_write_main.jsp'">
 			</div>
 			<br><br>
 			<div align ="center">
-			<form action=search.jsp>
+			<form name="search_form">
 			<img src="photo/검색Q.png" width="20px" height="20px">
 			<select name="key">
 				<option value="all">전체</option>
@@ -136,8 +150,7 @@
 				<option value="text">내용</option>
 			</select>
 			<input type="text" size="20" name="search" height="30px"> 
-			<img src="photo/검색.png" width="30px" height="20px" onclick=submit()>
-			<input STYLE="display: none;" type="text" name="state" value="board">
+			<img src="photo/검색.png" width="30px" height="20px" onclick="searchfun()">
 			</form>
 			</div>
 		</article>

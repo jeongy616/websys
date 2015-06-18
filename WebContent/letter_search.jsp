@@ -29,7 +29,7 @@
 <div id="content_div">
 	<section id="main_section">
 	<img src="photo/letter.png" height="50px">
-	<h1>'<%=search %>' 검색결과 <a href="letter.jsp">목록</a></h1>
+	<h1>'<%=search %>' 검색결과입니다.</h1>
 	<hr color="#4e4b4b"/><br/><br/>
 		<article id="letter_ariticle">
 			<table >
@@ -94,7 +94,7 @@
 		else{
 %>
 			<tr>
-			<td colspan="4">no record.</td>
+			<td colspan="4"><br>등록된 게시물이 없습니다.<br><br></td>
 			</tr>
 <% 		}
 	}catch(SQLException ex){
@@ -137,12 +137,26 @@
 		}
 	}
 %>
+	<script>
+		function searchfun(){
+			var key = document.search_form.key.value;
+			var search = document.search_form.search.value;
+			urlString = "search.jsp?key="+key+"&search="+search+"&state=letter"
+			if(search == ""){
+				alert("검색어를 입력해 주세요.");
+			}
+			else{
+				location.href=urlString;
+			}
+		}
+	
+	</script>
 			<div align="right">
 			<img src="photo/글쓰기.png" width="70px" onclick="location='letter_write_main.jsp'">
 			</div>
 			<br><br>
 			<div align ="center">
-			<form action=search.jsp>
+			<form name="search_form">
 			<img src="photo/검색Q.png" width="20px" height="20px">
 			<select name="key">
 				<option value="all">전체</option>
@@ -151,7 +165,7 @@
 				<option value="text">내용</option>
 			</select>
 			<input type="text" size="20" name="search" height="30px"> 
-			<img src="photo/검색.png" width="30px" height="20px" onclick=submit()>
+			<img src="photo/검색.png" width="30px" height="20px" onclick="searchfun()">
 			<input STYLE="display: none;" type="text" name="state" value="letter">
 			</form>
 			</div>
