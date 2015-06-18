@@ -29,7 +29,7 @@
 <div id="content_div">
 	<section id="main_section">
 	<img src="photo/게시판.png" height="50px">
-	<h1>검색결과</h1>
+	<h1>'<%=search %>' 검색결과  <a href="board.jsp">목록</a></h1>
 	<hr color="#4e4b4b"/><br/><br/>
 		<article id="board_ariticle">
 			<table >
@@ -51,8 +51,14 @@
 		String pw = "loveudbpass";
 		Class.forName("com.mysql.jdbc.Driver");
 		conn=DriverManager.getConnection(url,id,pw);
+		String sql = "";
 
-		String sql = "SELECT count(*) FROM board";
+		if(key.equals("all")){
+			sql = "SELECT count(*) FROM board WHERE title like '%"+search+"%' or userId like '%"+search+"%' or text like '%"+search+"%' order by number DESC";
+		}
+		else{
+			sql = "SELECT count(*) FROM board WHERE "+key+" like '%"+search+"%' order by number DESC";
+		}
 		stmt = conn.createStatement();
 		rs = stmt.executeQuery(sql);
 
@@ -112,13 +118,13 @@
 
 		if(currentPage > 1) {
 %>
-		<a href="board.jsp?pageNum=<%=currentPage-1%>">[이전]</a>
+		<a href="search.jsp?pageNum=<%=currentPage-1%>&key=<%=key%>&search=<%=search%>&state=board">[이전]</a>
 <%
 		}
 		// 레코드 수에 따라 쪽번호를 매긴다.
 		while(setPage <= lastPage) {
 %>
-				<a href="board.jsp?pageNum=<%=setPage%>">[<%=setPage%>]</a>
+				<a href="search.jsp?pageNum=<%=setPage%>&key=<%=key%>&search=<%=search%>&state=board">[<%=setPage%>]</a>
 <%
 			setPage = setPage + 1;
 		}
@@ -126,7 +132,7 @@
 		// 현재 쪽번호에 따라 다음 쪽의 번호를 파라메터로 넘겨준다.
 		if(lastPage > currentPage) {
 %>
-		<a href="board.jsp?pageNum=<%=currentPage+1%>">[다음]</a>
+		<a href="search.jsp?pageNum=<%=currentPage+1%>&key=<%=key%>&search=<%=search%>&state=board">[다음]</a>
 <%
 		}
 	}
@@ -136,16 +142,18 @@
 			</div>
 			<br><br>
 			<div align ="center">
+			<form action=search.jsp>
 			<img src="photo/검색Q.png" width="20px" height="20px">
-			<select name="search">
+			<select name="key">
 				<option value="all">전체</option>
-				<option value="writer">글쓴이</option>
+				<option value="userId">글쓴이</option>
 				<option value="title">제목</option>
-				<option value="content">내용</option>
+				<option value="text">내용</option>
 			</select>
-			<input type="text" size="20" name="search_text" height="30px"> 
-			<img src="photo/검색.png" width="30px" height="20px">
-			</div>
+			<input type="text" size="20" name="search" height="30px"> 
+			<img src="photo/검색.png" width="30px" height="20px" onclick=submit()>
+			<input STYLE="display: none;" type="text" name="state" value="board">
+			</form>
 		</article>
 	</section>
   </div>
