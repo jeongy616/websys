@@ -33,8 +33,12 @@ body{
 	$(function() {
 		$('.thumbnail').click(function() {
 			var j =this.src;
-			var i =window.open("","","width=300,height=400");
-			i.document.write("<head><title> View Image</title></head><body onclick='self.close()' style='cursor:hand'> <img src="+j+" width='280'>");
+			var test = new Image();
+			test.src = j;
+			var imgwidth = test.width+140;
+			var imgheight = test.height+180;
+			var i =window.open("","","width="+imgwidth+",height="+imgheight);
+			i.document.write("<head><title> View Image</title></head><body onclick='self.close()' style='cursor:hand'> <img src="+j+">");
 		});
 	});
 	function upload(){
