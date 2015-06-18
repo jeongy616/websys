@@ -7,7 +7,7 @@
 var auto_refresh = setInterval(
 		function()
 		{
-			$('#D_div').load('d_div.jsp');
+			$('.D_div').load('d_div.jsp');
 			},1000);
 			
 function imgSlideTicker() {
@@ -197,8 +197,9 @@ function imgSlideTicker() {
 </script>
 <style>
 /*본문*/
-	.D_div{
-		cursor: url(photo/tearpointer.png),pointer;
+	.label{
+	text-align:right;
+		cursor:url(photo/tearpoint.png),pointer;
 	}
 	#content_div{
 	width:70%;
@@ -288,18 +289,17 @@ setInterval(function () {
 	<%
 		String loginid = (String)session.getAttribute("loginID");
 		boolean isLogin = false;
-		out.println(loginid);
 		if(loginid!=null){
 			isLogin = true;
 		}
 		if(isLogin){
 	%>
 	<div id="login">
-	<%=loginid%> 님 환영합니다.
+	<b><%=loginid%></b> 님 환영합니다.
 	<button id="logout" name="logout" onclick="location='logout.jsp'" ><img src="photo/Logoutt.png" width="45px"></button>
 	</div>
 	<div class="D_div">
-		<label ><%=day%>일<%=hour%>시간<%=min%>분<%=sec%>초 남음.
+		<p class="label">유천이 입대까지 .. <%=day%>일<%=hour%>시간<%=min%>분<%=sec%>초 남음&nbsp&nbsp </p>
 	</div>
 	<%}else{
 	%>
@@ -311,7 +311,7 @@ setInterval(function () {
 	</form>
 	</div>
 	<div class="D_div">
-		<label ><%=day%>일<%=hour%>시간<%=min%>분<%=sec%>초 남음.
+		<p class="label">유천이 입대까지 .. <%=day%>일<%=hour%>시간<%=min%>분<%=sec%>초 남음 &nbsp&nbsp</p>
 	</div>
 
 	<%} %>

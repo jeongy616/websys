@@ -22,14 +22,16 @@
 			Class.forName("com.mysql.jdbc.Driver");
 			conn=DriverManager.getConnection(url,id,pw);
 			
-		
+			String bole = request.getParameter("bole");
+			//System.out.println(bole);
+			String board = "board";
+			String letter = "letter";
 			String textnum = request.getParameter("textnum");
-			System.out.println(textnum);
 			String userid = request.getParameter("userid");
 			String comment = request.getParameter("comment");
 			Date d = new Date();
 			int number=1;
-			
+		if(bole.equals(board)){
 			String sql = "SELECT max(number) FROM comment";
 			pstmt = conn.prepareStatement(sql);   
 			rs = pstmt.executeQuery();
@@ -50,8 +52,33 @@
 			out.println("test 테이블에 새로운 레코드를 추가했습니다.");
 			int paramnum = 0;
 			paramnum = Integer.parseInt(textnum);
+			
 			response.sendRedirect("board_show.jsp?num="+paramnum);
+		}
+			else{
+				String sql = "SELECT max(number) FROM comment2";
+				pstmt = conn.prepareStatement(sql);   
+				rs = pstmt.executeQuery();
+				if(rs.next()){
+					number = rs.getInt(1)+1;
+				}
 
+				String sql2 = "INSERT INTO comment2 values(?,?,?,?,?)";
+				pstmt = conn.prepareStatement(sql2);  
+				pstmt.setString(1,userid);
+				pstmt.setString(2,d.toString());
+				pstmt.setString(3,comment);
+				pstmt.setInt(4,number);
+				pstmt.setString(5,textnum);
+				pstmt.executeUpdate();
+
+				
+				out.println("test 테이블에 새로운 레코드를 추가했습니다.");
+				int paramnum = 0;
+				paramnum = Integer.parseInt(textnum);
+				response.sendRedirect("letter_show.jsp?num="+paramnum);
+
+			}
 		}catch(Exception e){          
 			e.printStackTrace();
 			out.println("실패 \n"+e);

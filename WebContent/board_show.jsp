@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import = "java.sql.*" %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,11 +10,11 @@
 <link href="content.css" rel="stylesheet" />
 <link href="show.css" rel="stylesheet" />
 <style>
-body{
-	background-color : #dae3ea
-}</style>
+</style>
 </head>
-
+<script>
+$('#text').val().replace(/\n/g, '<br>')
+</script>
 <body>
 	<jsp:include page="header.jsp" flush="false" />
 	<div id="content_div">
@@ -38,7 +37,8 @@ body{
 		String pw = "loveudbpass";
 		Class.forName("com.mysql.jdbc.Driver");
 		conn=DriverManager.getConnection(url,id,pw);
-
+		
+		String board = "board";
 		String sql = "SELECT * FROM board WHERE number = ?";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1,number);
@@ -76,7 +76,6 @@ body{
 				alert("회원님의 게시글이 아닙니다.");
 			<%	}%>
 		}
-
 </script>
 			<table>
 				<tr>
@@ -126,8 +125,9 @@ body{
 		</tr>
 		<tr class="com">
 		<td class="com">
-		<input type="hidden" name="userid" value="<%=rs.getString("userid")%>" >
+		<input type="hidden" name="userid" value="<%=loginid%>" >
 		<input type="hidden" name="textnum" value="<%=textnum %>" >
+		<input type="hidden" name="bole" value="<%=board%>" >
 		<input type="submit" value="작성" >
 		</td>
 		</tr></form>
@@ -143,6 +143,7 @@ body{
 			%>
 			<script>
 			function com_del(userid){
+				alert(userid);
 				<%
 				if(loginid.equals(userid)){
 				%>
@@ -163,7 +164,7 @@ body{
 			<table>
 				<tr>
 				<th >작성자</td>
-				<td ><%=rs.getString("userid") %></td>
+				<td ><%=rs.getString("userid")%></td>
 				<th >작성일</td>
 				<td ><%=rs.getString("date") %></td>
 				</tr>
@@ -173,7 +174,9 @@ body{
 				<tr>
 				<td colspan="4" id="btn">
 				<input type="button" value="삭제" onclick="com_del(<%=userid%>)">
-				<input type="hidden" vaule="<%=number %>" name="number">
+				<input type="hidden" name="bole" value="<%=board %>" >
+				<input type="hidden" value="<%=comnumber %>" name="number">
+				
 				</td>
 				</tr>
 				</table>

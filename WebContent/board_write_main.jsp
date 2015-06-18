@@ -10,9 +10,12 @@
 <style>
 th{
 	width:20%;
+	text-align:center;
+	background-color: rgba(102, 153, 255,0.6);
 }
 table{
 	width:60%;
+	border:0px;
 }
 </style>
 </head>
@@ -31,14 +34,14 @@ table{
 			</tr>
 			<tr>
 			<th>제목</th>
-			<td><input type="text" name="title" id="userid"></td>
+			<td><input type="text" name="title" size="70"></td>
 			</tr>
 			<tr>
 			<td colspan="2">
 			<textarea rows="20" name="text" cols="110"></textarea></td>
 			</tr>
 			<tr>
-			<td colspan="2" align="right">
+			<td colspan="2" align="right" border="0">
 			<input type="submit" value="등록"></td>
 			</tr>
 			</table>

@@ -10,9 +10,7 @@
 <link href="content.css" rel="stylesheet" />
 <link href="show.css" rel="stylesheet" />
 <style>
-body{
-	background-color : #dae3ea
-}</style>
+</style>
 </head>
 <script>
 $('#text').val().replace(/\n/g, '<br>')
@@ -27,6 +25,7 @@ $('#text').val().replace(/\n/g, '<br>')
 <%
 	String loginid = (String)session.getAttribute("loginID");
 	String number = request.getParameter("num");
+	String textnum = number;
 	int count;
 	
 	Connection conn = null;
@@ -39,6 +38,7 @@ $('#text').val().replace(/\n/g, '<br>')
 		Class.forName("com.mysql.jdbc.Driver");
 		conn=DriverManager.getConnection(url,id,pw);
 
+		String letter = "letter";
 		String sql = "SELECT * FROM letter WHERE number = ?";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1,number);
@@ -96,7 +96,8 @@ $('#text').val().replace(/\n/g, '<br>')
 				<tr>
 				<td colspan="6" id="btn">
 				<a href="letter.jsp">목록</a>
-				<input type="button" value="수정" onclick="edit(<%=userid%>)"><input type="button" value="삭제" onclick="l_delete(<%=userid%>)">
+				<input type="button" value="수정" onclick="edit(<%=userid%>)">
+				<input type="button" value="삭제" onclick="l_delete(<%=userid%>)">
 				</td>
 				</tr>
 				</table>
@@ -106,6 +107,78 @@ $('#text').val().replace(/\n/g, '<br>')
 			pstmt.setInt(1,count);
 			pstmt.setString(2,number);
 			pstmt.executeUpdate();
+		}
+		%>
+		<script>
+		function com_Check(){
+				location.href='comment_ok.jsp?num=<%=textnum%>'
+
+		}
+		</script>
+		<form name="com_form" action="comment_ok.jsp">
+		<table  class="com">
+		<tr class="com">
+		<th>코멘트를 작성해주세요.</th>
+		</tr>
+		<tr class="com">
+		<td class="com"><textarea rows="5" name="comment" cols="120" border="0"></textarea></td>
+		</tr>
+		<tr class="com">
+		<td class="com">
+		<input type="hidden" name="userid" value="<%=loginid%>" >
+		<input type="hidden" name="textnum" value="<%=textnum %>" >
+		<input type="hidden" value="<%=letter %>" name="bole">
+		<input type="submit" value="작성" >
+		</td>
+		</tr></form>
+		<% 
+		String sql3 = "SELECT * FROM comment2 WHERE textnum = ?";
+		pstmt = conn.prepareStatement(sql3);
+		pstmt.setString(1,textnum);
+		rs = pstmt.executeQuery();
+
+		while(rs.next()){
+			String userid = rs.getString("userid");
+			String comnumber = rs.getString("number");
+			%>
+			<script>
+			function com_del(userid){
+				<%
+				if(loginid.equals(this)){
+				%>
+					q=confirm("삭제하시겠습니까?");
+					if(q){
+						location.href='comment_del.jsp?num=<%=comnumber%>';
+					}
+					else{
+						alert("삭제가 취소되었습니다.");
+					}
+				<%	}
+				else{
+				%>
+					alert("회원님의 게시글이 아닙니다.");
+				<%	}%>
+			}
+			</script>
+			<table>
+				<tr>
+				<th >작성자</td>
+				<td ><%=rs.getString("userid") %></td>
+				<th >작성일</td>
+				<td ><%=rs.getString("date") %></td>
+				</tr>
+				<tr>
+				<td colspan="4" id="comment"><%=(rs.getString("comment")).replace("\r\n", "<br>")%></td>
+				</tr>
+				<tr>
+				<td colspan="4" id="btn">
+				<input type="button" value="삭제" onclick="com_del(<%=userid%>)">
+				<input type="hidden" value="<%=letter %>" name="bole">
+				<input type="hidden" value="<%=comnumber %>" name="number">
+				</td>
+				</tr>
+				</table>
+				<%
 		}
 	}catch(SQLException ex){
 		%>오류<%=ex %>

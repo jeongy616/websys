@@ -10,10 +10,6 @@
 <link href="background.css" rel="stylesheet" />
 <link href="content.css" rel="stylesheet" />
 <style>
-body{
-	background-color : #dae3ea
-}
-
 .thumbnail {
 	width: 150px;
 	height: 150px;
@@ -35,8 +31,8 @@ body{
 			var j =this.src;
 			var size = new Image();
 			size.src = j;
-			var imgwidth = size.width+10;
-			var imgheight = size.height+10;
+			var imgwidth = size.width+20;
+			var imgheight = size.height+20;
 			var i =window.open("","","width="+imgwidth+",height="+imgheight);
 			i.document.write("<head><title>"+imgwidth+"View Image</title></head><body onclick='self.close()' style='cursor:hand'> <img src="+j+">");
 		});
