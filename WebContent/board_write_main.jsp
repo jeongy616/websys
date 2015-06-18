@@ -8,27 +8,30 @@
 <link href="background.css" rel="stylesheet" />
 <link href="content.css" rel="stylesheet" />
 <style>
-body{
-	background-color : #dae3ea
-}</style>
+th{
+	width:20%;
+}
+table{
+	width:60%;
+}
+</style>
 </head>
 <body>
 	<% String loginid = (String)session.getAttribute("loginID"); %>
 	<jsp:include page="header.jsp" flush="false" />
 <div id="content_div">
-	<section id="main_section">
 	<img src="photo/게시판.png" height="50px">
 	<hr color="#4e4b4b"/><br/><br/>
-		<article id="board_ariticle">
+	<center>
 		<form method="post" action="board_write_ok.jsp">
-			<table border="1" align="center">
+			<table border="1" bgcolor="white">
 			<tr>
-			<td >작성자</td>
-			<td ><input type="text" name="userid" id="userid" size="100" value="<%= loginid %>"></td>
+			<th>작성자</th>
+			<td ><input type="text" name="userid" id="userid" size="30" disabled="disabled" value=" <%= loginid %>"></td>
 			</tr>
 			<tr>
-			<td >제목</td>
-			<td ><input type="text" name="title" id="title" size="100"></td>
+			<th>제목</th>
+			<td><input type="text" name="title" id="userid"></td>
 			</tr>
 			<tr>
 			<td colspan="2">
@@ -39,7 +42,7 @@ body{
 			<input type="submit" value="등록"></td>
 			</tr>
 			</table>
-		</article>
-	</section>
+			</form>
+	</center>
   </div>
   </body>

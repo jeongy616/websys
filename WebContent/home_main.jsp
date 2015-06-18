@@ -198,7 +198,7 @@ function imgSlideTicker() {
 <style>
 /*본문*/
 	.D_div{
-		cursor: url(photo/tearpointer),pointer;
+		cursor: url(photo/tearpointer.png),pointer;
 	}
 	#content_div{
 	width:70%;
