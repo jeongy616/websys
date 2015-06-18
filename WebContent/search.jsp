@@ -13,13 +13,13 @@
 
 		if(state.equals("board")){
 	%>
-			<jsp:include page="header_login.jsp" flush="false" />
+			<jsp:include page="header.jsp" flush="false" />
 			<jsp:include page="board_search.jsp" flush="false" />
 			<jsp:include page="footer.html" flush="false" />
 	<%	}
 		else{
 	%>
-			<jsp:include page="header_login.jsp" flush="false" />
+			<jsp:include page="header.jsp" flush="false" />
 			<jsp:include page="letter_search.jsp" flush="false" />
 			<jsp:include page="footer.html" flush="false" />
 	<%	}

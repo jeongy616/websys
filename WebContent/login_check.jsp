@@ -24,8 +24,8 @@
 			String userid = request.getParameter("inputid");
 			String userpw = request.getParameter("inputpw");
 			
-			System.out.println("input id" + userid);
-			System.out.println("input pw" + userpw);
+			out.println("input id" + userid);
+			out.println("input pw" + userpw);
 			
 			String sql = "SELECT * FROM members WHERE userId = ?";
 			pstmt = conn.prepareStatement(sql);       

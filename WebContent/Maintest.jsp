@@ -37,8 +37,8 @@ padding:0px;
 		position:absolute;
 	}
 	#title {
-		left:30%;
-		padding:5%;
+		left:37%;
+		padding:2%;
 		position:relative;
 	}
 	#login{
@@ -119,11 +119,7 @@ $(function () {
 <body>
 <div id="header_div">
 	<header id="main_header">
-		<nav id="shortcut">
-			<input type="button" value="facebook">
-			<input type="button" value="C-jes">
-		</nav>
-		<img src="photo/titlee.png" id="title" height="100px" onclick="location='home.jsp'">
+		<img src="photo/titlee.png" id="title" height="110px" onclick="location='home.jsp'">
 	</header>
 	<nav id="menu">
 		<ul >
@@ -137,28 +133,6 @@ $(function () {
 	</nav>
 </div>
 
-<div id="content_div">
-	<div id="main_div">
-		<img src="photo/main2.JPG" width="100%">
-	</div>
 
-<form name="id_form">
-<div id="login">
-	<input type="text" size="15" name="userid"> <input type="password" size="15" name="userpw">
-	<button id="in" name="in" onclick="location='login.jsp'"><img src="photo/Login.jpg" width="45px" ></button>
-	<button id="join" name="join" onclick="location='join.jsp'"><img src="photo/Join.jpg" width="45px" ></button>
-</div>
-</form>
-<hr id="border">
-	<div id="middle">
-		<div id="slide">
-			<ul id="slider">
-			<li><img src="photo/youcheon5.jpg" style="position:absolute;"/> </li>
-    		<li><img src="photo/youcheon4.jpg" style="position:absolute;" /> </li>
-    		</ul>
-		</div>
-	</div>
-
-</div>
 </body>
 </html>

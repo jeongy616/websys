@@ -8,34 +8,36 @@
 <link href="background.css" rel="stylesheet" />
 <link href="content.css" rel="stylesheet" />
 <style>
-body{
-	background-color : #dae3ea
-}</style>
+.tbottom{
+	padding-top:5px;
+}
+</style>
 </head>
 <body>
 	<jsp:include page="header.jsp" flush="false" />
 	
-<div id="content_div">
+<div id="content_div" >
+	<form name=zb_login method=post action="login_check.jsp" onSubmit="return zb_login_check_submit();">
 	<section id="main_section">
-	<form method="post" action="login_check.jsp">
-		<table border="0" cellpadding="0" cellspacing="0" width="900">
+		<table border="0" cellpadding="0" cellspacing="0" width="300">
  			<tr>
-  <th width="200">아이디 </th>
+  <th width="100">아이디 </th>
   <td><input type="text" size="20" name="inputid"></td>
  </tr>
 
  <tr>
-  <th width="200">비밀번호</th>
+  <th width="100">비밀번호</th>
   <td><input type="password" size="21" name="inputpw"></td>
  </tr>
- 
  <tr>
-  <td colspan="2" class="bottom">
-  <input type="submit" value="로그인" ><input type="button" value="회원가입" onclick="location='join.jsp'">
+  <td colspan="2" class="tbottom">
+
+		<input type="image" src="photo/Login.jpg" border="0" width="45px" >
+		<input type="image" src="photo/Join.jpg" border="0" width="45px" >
+	</form>
   </td>
  </tr>
  </table>
-</form>
 	</section>
 </div><!--여기까지 section-->
   

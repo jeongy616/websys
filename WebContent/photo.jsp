@@ -20,6 +20,12 @@ body{
 	margin-left: 20px;
 	cursor: pointer;
 }
+.photo_upload{
+	padding-bottom: 15px;
+}
+#photo_up_no{
+	cursor:not-allowed;
+}
 </style>
 <script src="jquery-1.11.3.min.js"></script>
 <script>
@@ -39,13 +45,13 @@ body{
 </head>
 <body>
 	<jsp:include page="header.jsp" flush="false" />
+	<div id="content_div">
 	<%
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	String rank = "master";
 	try{
-	String loginid = (String)session.getAttribute("loginID");
 	String url = "jdbc:mysql://203.252.202.75:3306/loveudb";
 	String id = "loveudbuser";
 	String pw = "loveudbpass";
@@ -58,31 +64,33 @@ body{
 	rs = pstmt.executeQuery();
 	
 	while(rs.next()){
-		boolean isLogin = false;
+		String loginid = (String)session.getAttribute("loginID");
 		String userid = rs.getString("userid");
-		if(userid != null){
-			isLogin = true;
-			if(isLogin){
+		if(loginid!=null){
+			if(userid != null){
 				if(loginid.equals(userid)){
-					isLogin = true;
 	%>
-<div id="photo_upload">
-	<button id="photo_up" onclick="upload()">올리기</button>
-</div>
-<div id="content_div">
 
+	<div class="photo_upload">
+		<button id="photo_up" onclick="upload()" background-color="white"><img src="photo/Upload.jpg" width="70px" ></button>
+	</div><br>
 	<%
 				}
 			}
 		}
-	
+		else{
+		%>
+		<div class="photo_upload">
+			<button id="photo_up_no" onclick="upload()" disabled="disabled"><img src="photo/Upload.jpg"width="70px"></button>
+		</div>
+		<%}
+	}
 		File folder = new File(application.getRealPath("/photo/images"));
 	    for( File f : folder.listFiles()){
 	%>
-	    	<img src="/websys/photo/images/<%=f.getName()%>" class='thumbnail'/>  	
+	    <img src="/websys/photo/images/<%=f.getName()%>" class='thumbnail'/>  	
 	<%
 		}
-	    }
 }catch(Exception ex){
 	%>오류<%=ex %>
 <%  } %>

@@ -10,6 +10,10 @@
 <style>
 body{
 	background-color : #dae3ea
+}
+label{
+	cursor: pointer;
+	hover: white;
 }</style>
 </head>
 <body>

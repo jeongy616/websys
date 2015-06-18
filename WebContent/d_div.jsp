@@ -63,6 +63,6 @@ var auto_refresh = setInterval(
 	    	  day--;
 	      }
 	%>
-		<label onchange=""><font face="monospace" size="1"><h1><%=day%>일<%=hour%>시간<%=min%>분<%=sec%>초 남음.</h1></font></label>
+		<label onchange=""><%=day%>일<%=hour%>시간<%=min%>분<%=sec%>초 남음</label>
 </body>
 </html>

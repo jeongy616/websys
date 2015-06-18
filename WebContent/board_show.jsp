@@ -17,7 +17,7 @@ body{
 </head>
 
 <body>
-	<jsp:include page="header_login.jsp" flush="false" />
+	<jsp:include page="header.jsp" flush="false" />
 	<div id="content_div">
 	<section id="main_section">
 	<img src="photo/게시판.png" height="50px">

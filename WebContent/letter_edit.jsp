@@ -17,7 +17,7 @@ body{
 
 <body>
 	<script>function goback(){history.go(-1);}</script>
-	<jsp:include page="header_login.jsp" flush="false" />
+	<jsp:include page="header.jsp" flush="false" />
 	<div id="content_div">
 	<section id="main_section">
 	<img src="photo/letter.png" height="50px">

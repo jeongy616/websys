@@ -10,19 +10,6 @@
 <title>Insert title her</title>
 <link href="background.css" rel="stylesheet" />
 <style>
-*{
-margin:0px;
-padding:0px;
-}
-body{
-	background-color : #dae3ea;
-}
-	#D_div{
-		position: absolute;
-		padding-top:140px;
-		padding-left:40px;
-	}
-
 	#schedule_div{
 		position: absolute;
 		height: 800px;
@@ -62,80 +49,11 @@ body{
 			}
 		});
 	});
-	var auto_refresh = setInterval(
-			function()
-			{
-				$('#D_div').load('d_div.jsp');
-				},1000);
 </script>
 </head>
 <body>
-	<%
-		String loginid = (String)session.getAttribute("loginID");
-		boolean isLogin = false;
-		if(loginid!=null){
-			isLogin = true;
-		}
-		if(isLogin){
-	%>
-			<jsp:include page="header_login.jsp" flush="false" />
-	<%	}
-		else{
-	%>
-			<jsp:include page="header.jsp" flush="false" />
-	<%	}
-	%>
-	
-	<div id="D_div">
-	<%
-		Calendar currentCalendar = Calendar.getInstance();
-	    Calendar cal1 = Calendar.getInstance();
-	    Calendar dday= Calendar.getInstance();
-	    
-	    int nTotalDate1 = 0, nTotalDate2 = 0, nDiffOfYear = 0, nDiffOfDay = 0;
-	    
-	    int curYear =currentCalendar.get(Calendar.YEAR);  //2015
-	    int curMonth =currentCalendar.get(Calendar.MONTH)+1; //6
-	    int curDate =currentCalendar.get(Calendar.DAY_OF_MONTH);//2
-	    int curHour = currentCalendar.get(Calendar.HOUR_OF_DAY);//15
-	    int curMin = currentCalendar.get(Calendar.MINUTE);
-	    int curSec = currentCalendar.get(Calendar.SECOND);
-	    
-		int DY=2015;
-		int DM=8;
-		int DD=27;
-	    dday.set(DY,DM,DD);// D-day의 날짜를 입력합니다.
-		
-		int hour= 24-curHour;
-		int min = 60-curMin;
-		int sec= 60-curSec;
-	    
-	     cal1.set(DY, DM-1, DD);
-	      nDiffOfDay = cal1.get(Calendar.DAY_OF_YEAR);
-	      nTotalDate1 += nDiffOfDay;
+<jsp:include page="header.jsp" flush="false" />
 
-	     cal1.set(curYear, curMonth-1, curDate);
-	      nDiffOfDay = cal1.get(Calendar.DAY_OF_YEAR);
-	      nTotalDate2 += nDiffOfDay;
-	      
-	      int day = nTotalDate1 - nTotalDate2;
-	      if(sec != 0){
-	    	  min--;
-	    	  if(min != 0){
-	    		  hour--;
-	    	  }
-	      }
-	      else{
-	    	  if(min!=0){
-	    		  hour--;
-	    	  }
-	      }
-	      if(hour!=0){
-	    	  day--;
-	      }
-	%>
-		<label onchange=""><font face="monospace" size="1"><h1><%=day%>일<%=hour%>시간<%=min%>분<%=sec%>초 남음.</h1></font></label>
-	</div>
 	<div id="main_div">
 		<jsp:include page="home_main.jsp" flush="false" />
 	</div>
