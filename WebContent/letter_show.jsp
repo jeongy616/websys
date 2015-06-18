@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import = "java.sql.*" %> 
+<%@ page import = "java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +15,7 @@ body{
 }</style>
 </head>
 <script>
-$('#text').val().replace(/\n/g, '<br>') 
+$('#text').val().replace(/\n/g, '<br>')
 </script>
 <body>
 	<jsp:include page="header_login.jsp" flush="false" />

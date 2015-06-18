@@ -123,7 +123,7 @@ $(function () {
 			<input type="button" value="facebook">
 			<input type="button" value="C-jes">
 		</nav>
-		<img src="photo/title.png" id="title" height="100px" onclick="location='home.jsp'">
+		<img src="photo/titlee.png" id="title" height="100px" onclick="location='home.jsp'">
 	</header>
 	<nav id="menu">
 		<ul >
