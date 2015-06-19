@@ -47,8 +47,7 @@
 				});
 				isOpen = false;
 			}
-		});
-	});
+		});	});
 </script>
 </head>
 <body>
