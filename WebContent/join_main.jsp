@@ -22,7 +22,8 @@
 <table border="0" cellpadding="0" cellspacing="0" width="65%" bgcolor="white">
  <tr>
   <th >아이디 </th>
-  <td><input type="text" size="20" name="userid" value=""> <input type="button" value="중복확인" onclick="idcheck()">*4~12자의 영문과 숫자의 조합</td>
+  <td><input type="text" size="20" name="userid" value=""> <input type="button" value="중복확인" onclick="idcheck()">*4~12자의 영문과 숫자의 조합
+  <input type="hidden" value="1" id="checkid"></td>
  </tr>
 
  <tr>

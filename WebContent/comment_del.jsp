@@ -11,7 +11,6 @@
 <body>
 <%
 	String num = request.getParameter("number");
-	System.out.println(num);
 	request.setCharacterEncoding("UTF-8");
 	Connection conn = null;
 	PreparedStatement pstmt = null;
@@ -27,10 +26,12 @@
 		number = Integer.parseInt(num);
 		
 		String bole = request.getParameter("bole");
+		System.out.println(bole);
 		String board = "board";
 		String letter = "letter";
 		
 		if(bole.equals(board)){
+			
 		String sql = "DELETE FROM comment WHERE number=?";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1,number);
@@ -71,7 +72,7 @@
 			if(rs.next()){
 				out.println("테이블 호출에 성공.");
 				String textnum = rs.getString("textnum");
-				response.sendRedirect("board_show.jsp?num="+textnum);
+				response.sendRedirect("letter_show.jsp?num="+textnum);
 			}
 		}
 		

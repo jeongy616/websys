@@ -7,6 +7,18 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+					<script>
+					  function inputClose(){
+						  var test = document.getElementById("child").value;
+					     opener.document.all.checkid.value = test;           
+					     self.close();
+					  }
+					     function inputClose2(){
+					    	 var test = document.getElementById("child2").value;
+						     opener.document.all.checkid.value = test;           
+						     self.close();
+						  }
+					</script>
 <body>
 <table>
 	<%
@@ -35,12 +47,17 @@
 				if(userid.equals(testid)){
 					i = 0;%>
 					<p>중복된 아이디입니다.</p>
+					  <input type="hidden" value="1" id="child"></td>
+					<input type="button" value="close" onclick="inputClose()" />
 					<%
+					
 				}
 			}
 			if(i==2){
 			%>
 			<p>사용가능한 아이디 입니다.</p>
+			  <input type="hidden" value="2" id="child2"></td>
+			<input type="button" value="close" onclick="inputClose2()" />
 			<%
 			}
 		}catch(Exception e){          

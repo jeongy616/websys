@@ -11,9 +11,8 @@ var auto_refresh = setInterval(
 			},1000);
 			
 function imgSlideTicker() {
-
 	var self = this;
-	this.waitTime = 2000; 
+	this.waitTime = 2000;
 	this.slideSpeed = 2;
 	this.contentWidth = 100; 
 	this.contentHeight = 90;
@@ -23,7 +22,7 @@ function imgSlideTicker() {
 	this.unPauseSlide=1;
 	this.tempCount=0;
 	this.mode=0;
-	this.contentsArray=new Array(); 
+	this.contentsArray=new Array();
 	this.reslide;
 	this.autoslide = true;
 	this.imgOnly = false; 
@@ -32,12 +31,10 @@ function imgSlideTicker() {
 	this.simple = 0;
 
 	//this.contentsArray.push('<a><img></a>');
-
 	if (this.slideSpeed%2 && this.slideSpeed > 2)
 	{
 		this.slideSpeed++;
 	}
-
 	this.init = function () {
 		if (this.simple == 0)
 		{
@@ -233,6 +230,15 @@ function imgSlideTicker() {
 setInterval(function () {
 	$("li").next().Attr("display","inline");
 	}, 2000);
+
+function loginchk(){
+	var i = document.getElementById("inputid").value;
+	alert(i);
+	var p = document.getElementById("inputpw").value;
+	alert(p);
+	
+	location.href='login_check.jsp?inputid='+i'&inputpw='+p;
+}
 </script>
 
 <div id="content_div">
@@ -304,11 +310,9 @@ setInterval(function () {
 	<%}else{
 	%>
 	<div id="login">
-	<form name=zb_login method=post action="login_check.jsp" onSubmit="return zb_login_check_submit();">
-		<input type="text" size="15" name="inputid"> <input type="password" size="15" name="inputpw">
-		<input type="image" src="photo/Login.jpg" border="0" width="45px" >
-		<input type="image" src="photo/Join.jpg" border="0" width="45px" >
-	</form>
+		<input type="text" size="15" id="inputid"> <input type="password" size="15" id="inputpw">
+		<input type="image" src="photo/Login.jpg" width="45px" onclick="loginchk();" >
+		<input type="image" src="photo/Join.jpg" width="45px" onclick="location='join.jsp'">
 	</div>
 	<div class="D_div">
 		<p class="label">유천이 입대까지 .. <%=day%>일<%=hour%>시간<%=min%>분<%=sec%>초 남음 &nbsp&nbsp</p>

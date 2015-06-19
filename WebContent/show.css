@@ -5,7 +5,7 @@ table{
 }
 th{
 	text-align: center;
-	background-color: rgba(102, 153, 255,0.8);
+	background-color: rgb(102, 153, 255);
 }
 td{
 	padding-left:10px;
@@ -21,7 +21,6 @@ td{
 }
 #btn{
 	text-align: right;
-	background-color: #dae3ea;
 }
 .class{
 	width:100%;

@@ -22,7 +22,7 @@
 	}
 	#sched {
 		position: absolute;
-		right: -120px;
+		right: -100px;
 		bottom: 250px;
 		cursor: pointer;
 	}
@@ -38,12 +38,12 @@
 		$('#sched').click(function(){
 			if (!isOpen) {
 				$('#schedule_div').animate({left: "0px"}, 1000, function() {
-					$('#sched').attr('src', 'photo/schedule11.png');
+					$('#sched').attr('src', 'photo/schedclick.png');
 				});
 				isOpen = true;
 			} else {
 				$('#schedule_div').animate({left: "-500px"}, 1000, function() {
-					$('#sched').attr('src', 'photo/schedule22.png');
+					$('#sched').attr('src', 'photo/schedclick.png');
 				});
 				isOpen = false;
 			}
@@ -59,7 +59,7 @@
 	</div>
 	<jsp:include page="footer.html" flush="false" />
 	<div id="schedule_div">
-		<img src="photo/schedule22.png" id="sched" width="120px" height="80px">
+		<img src="photo/schedclick.png" id="sched" width="100px" height="100px">
 		<div id="cal_page">
 			<jsp:include page="schedule.jsp" flush="false" />
 		</div>

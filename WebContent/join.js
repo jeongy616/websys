@@ -52,6 +52,10 @@
                   return false;
               }
           }
+          if(document.getElementById("checkid").value == 1){
+        	  alert("아이디 중복체크를 해주세요.");
+        	  return false;
+          }
           if(secchk == 0){
         	  alert("보안문자 확인을 클릭하세요.");
         	  return false;

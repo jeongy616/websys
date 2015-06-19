@@ -95,9 +95,9 @@ $('#text').val().replace(/\n/g, '<br>')
 				</tr>
 				<tr>
 				<td colspan="6" id="btn">
-				<a href="letter.jsp">목록</a>
-				<input type="button" value="수정" onclick="edit(<%=userid%>)">
-				<input type="button" value="삭제" onclick="l_delete(<%=userid%>)">
+				<button onclick="location='letter.jsp'"><img src="photo/list.png" width="40px"> </button>
+				<button onclick="edit(<%=userid%>)" ><img src="photo/editimg.png" width="40px"> </button>
+				<button onclick="b_delete(<%=userid%>)"><img src="photo/delimg.png" width="40px"> </button>
 				</td>
 				</tr>
 				</table>
@@ -148,7 +148,7 @@ $('#text').val().replace(/\n/g, '<br>')
 				%>
 					q=confirm("삭제하시겠습니까?");
 					if(q){
-						location.href='comment_del.jsp?num=<%=comnumber%>';
+						location.href='comment_del.jsp?number=<%=comnumber%>&bole=<%=letter%>'
 					}
 					else{
 						alert("삭제가 취소되었습니다.");
@@ -168,11 +168,12 @@ $('#text').val().replace(/\n/g, '<br>')
 				<td ><%=rs.getString("date") %></td>
 				</tr>
 				<tr>
-				<td colspan="4" id="comment"><%=(rs.getString("comment")).replace("\r\n", "<br>")%></td>
+				<td colspan="4" id="comment"><%=(rs.getString("comment")).replace("\r\n", "<br>")%>
+				</td>
 				</tr>
 				<tr>
 				<td colspan="4" id="btn">
-				<input type="button" value="삭제" onclick="com_del(<%=userid%>)">
+				<button onclick="com_del(<%=userid%>)"><img src="photo/delimg2.png" width="20px"></button>
 				<input type="hidden" value="<%=letter %>" name="bole">
 				<input type="hidden" value="<%=comnumber %>" name="number">
 				</td>

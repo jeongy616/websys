@@ -9,8 +9,6 @@
 <link href="background.css" rel="stylesheet" />
 <link href="content.css" rel="stylesheet" />
 <link href="show.css" rel="stylesheet" />
-<style>
-</style>
 </head>
 <script>
 $('#text').val().replace(/\n/g, '<br>')
@@ -18,10 +16,9 @@ $('#text').val().replace(/\n/g, '<br>')
 <body>
 	<jsp:include page="header.jsp" flush="false" />
 	<div id="content_div">
-	<section id="main_section">
+
 	<img src="photo/게시판.png" height="50px">
 	<hr color="#4e4b4b"/><br/><br/>
-	<article id="board_ariticle">
 <%
 	String loginid = (String)session.getAttribute("loginID");
 	String number = request.getParameter("num");
@@ -95,9 +92,9 @@ $('#text').val().replace(/\n/g, '<br>')
 				</tr>
 				<tr>
 				<td colspan="6" id="btn">
-				<a href="board.jsp">목록</a>
-				<input type="button" value="수정" onclick="edit(<%=userid%>)" >
-				<input type="button" value="삭제" onclick="b_delete(<%=userid%>)">
+				<button onclick="location='board.jsp'"><img src="photo/list.png" width="40px"></button>
+				<button onclick="edit(<%=userid%>)" ><img src="photo/editimg.png" width="40px"></button>
+				<button onclick="b_delete(<%=userid%>)"><img src="photo/delimg.png" width="40px"></button>
 				</td>
 				</tr>
 				</table>
@@ -143,13 +140,12 @@ $('#text').val().replace(/\n/g, '<br>')
 			%>
 			<script>
 			function com_del(userid){
-				alert(userid);
 				<%
 				if(loginid.equals(userid)){
 				%>
 					q=confirm("삭제하시겠습니까?");
 					if(q){
-						location.href='comment_del.jsp?num=<%=comnumber%>';
+						location.href='comment_del.jsp?number=<%=comnumber%>&bole=<%=board%>'
 					}
 					else{
 						alert("삭제가 취소되었습니다.");
@@ -174,9 +170,6 @@ $('#text').val().replace(/\n/g, '<br>')
 				<tr>
 				<td colspan="4" id="btn">
 				<input type="button" value="삭제" onclick="com_del(<%=userid%>)">
-				<input type="hidden" name="bole" value="<%=board %>" >
-				<input type="hidden" value="<%=comnumber %>" name="number">
-				
 				</td>
 				</tr>
 				</table>
