@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import = "java.text.*" %>
 <%@ page import = "java.util.*" %>
+ <%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -93,9 +94,19 @@ int endDay=cal.getActualMaximum(Calendar.DAY_OF_MONTH);
 
 int week =cal.get(Calendar.DAY_OF_WEEK);
 
+
+request.setCharacterEncoding("utf-8");
+Connection conn = null;            
+PreparedStatement pstmt = null;
+ResultSet rs = null;
+
 %>
-
-
+					<table>
+					<tr>
+					<td width="10%"><%=rs.getString("title")%><br /><%=rs.getString("location")%></td>
+					</tr>
+					</table>
+	
 <br/>&nbsp;<br/>
 
 <table align="center" width="270" cellpadding="2" cellspacing="1">
