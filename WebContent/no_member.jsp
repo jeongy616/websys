@@ -24,10 +24,12 @@ label{
 	<hr color="#4e4b4b"/><br/><br/>
 		<article id="board_ariticle">
 		<div align="center">
-		<p>
-			사용권한이 없습니다.<br>
-			 <label onclick="location='login.jsp'">로그인 </label><label onclick="location='join.jsp'">회원가입</label>
-		</p>
+		<h4>
+			이곳은 회원전용 게시판입니다.<br>
+			이용을 원하시면 로그인해주세요.<br><br>
+			<input type="image" src="photo/Login.jpg" width="45px" onclick="location='login.jsp'" >
+			<input type="image" src="photo/Join.jpg" width="45px" onclick="location='join.jsp'">
+		</h4>
 		</div>
 		</article>
 	</section>
