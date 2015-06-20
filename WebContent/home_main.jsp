@@ -349,7 +349,7 @@ function loginchk(){
 		</div>
 	<div id="notice" style="overflow:auto;width:100%;height:260;">
 		<span style="font-size:9pt;color:#000000;line-height:160%;">
-		<font face=Tahoma>- 가입시 닉네임으로 <b>본명</b>, <b>틴탑 멤버 이름</b>이나, <b>특수문자</b>, <b>자음남발</b> 등은 삼가해주세요.<br />
+		<font face=Tahoma>- 가입시 닉네임으로 <b>본명</b>, <b>박유천 이름</b>이나, <b>특수문자</b>, <b>자음남발</b> 등은 삼가해주세요.<br />
 		<font color=cccccc>　Please refrain from nickname TEENTOP member name or such as consonant hard to understand.</font><br />
 		<br />
 		- 가입시 닉네임은 띄어쓰기 없이 <b>한글 8자, 영문 12자 이하</b>로 작성해주세요.<br />

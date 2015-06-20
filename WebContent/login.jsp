@@ -18,7 +18,6 @@
 	
 <div id="content_div" >
 	<form name=zb_login method=post action="login_check.jsp" onSubmit="return zb_login_check_submit();">
-	<section id="main_section">
 		<table border="0" cellpadding="0" cellspacing="0" width="300">
  			<tr>
   <th width="100">아이디 </th>
@@ -38,9 +37,8 @@
   </td>
  </tr>
  </table>
-	</section>
-</div><!--여기까지 section-->
-  
+</div>
+
 	<jsp:include page="footer.html" flush="false" />
 </body>
 </html>

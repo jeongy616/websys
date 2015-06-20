@@ -18,7 +18,9 @@
 	cursor: pointer;
 }
 #b_info{
-	overflow:auto;width:100%;height:260;
+	overflow:auto;
+	width:100%;
+	height:350px;
 }
 </style>
 </head>
