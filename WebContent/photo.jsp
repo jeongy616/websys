@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Photo_upload</title>
 <link href="background.css" rel="stylesheet" />
 <link href="content.css" rel="stylesheet" />
 <style>
@@ -38,7 +38,7 @@
 		});
 	});
 	function upload(){
-		window.open('photo_upload.jsp','',"width=550, height=300");
+		window.open('photo_upload.jsp','',"width=300, height=100");
 	}
 	
 </script>

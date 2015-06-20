@@ -62,16 +62,18 @@
             while((read=fin.read(buf,0,buf.length))!=-1){
                 fout.write(buf, 0, read);
             }
-             
+            %>
+            <center><P>정상적으로 업로드 되었습니다.</P></center>
+            <%
             fin.close();
             fout.close();
             oldFile.delete();
-        }   
- 
+        }
     }catch(Exception e){
         e.printStackTrace();
     }
- 
 %>
+
+
 </body>
 </html>
