@@ -368,11 +368,11 @@ function loginchk(){
 	</div>
 	<div id="banner">
 		<font color=cccccc size=5>　
-		<p><a href="" onclick="https://www.facebook.com/CJESJYJ" class="ban">facebook </a></p>
+		<p><a href="http://www.facebook.com/CJESJYJ" class="ban">facebook </a></p>
 		<br><hr color=cccccc><br>
-		<p><a href="" onclick="http://www.c-jes.com/ko" class="ban">C-jes entertainment </a></p>
+		<p><a href="http://www.c-jes.com/ko" class="ban">C-jes entertainment </a></p>
 		<br><hr color=cccccc><br>
-		<p><a href="" onclick="https://twitter.com/6002theMicky" class="ban">twitter</a></p>
+		<p><a href="http://twitter.com/6002theMicky" class="ban">twitter</a></p>
 		
 		</font>
 	</div>

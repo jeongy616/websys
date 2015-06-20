@@ -40,8 +40,9 @@
 			2014 SBS 쓰리데이즈 - 한태경 <br />
 			2012-13 MBC 보고싶다 - 한정우  <br />
 			2012 SBS 옥탑방왕세자 - 이각 <br />
-			2011 MBC 미스리플리 - 송유현  <br /> <br />
-			<b>Movie</b> <br /> 2014 해무 - 동식 <br />
+			2011 MBC 미스리플리 - 송유현  <br /> 
+			2010 KBS2 성균관 스캔들 - 이선준 <br /><br />
+			<b>Movie</b> <br /> 2014 해무 - 동식 <br /><br /> 
 			<b>Awards</b><br />
 			2015 제51회 백상예술대상 영화 남자신인연기상<br />
 			2015 제10회 맥스무비 최고의 영화상 남자 신인배우상<br />
@@ -56,10 +57,12 @@
 		</div>
 		
 		<div>
-		<img src="photo/info/scandal.PNG" class="info" >
-		<img src="photo/info/toproom.PNG" class="info">
-		<img src="photo/info/miss.PNG" class="info">
+		<img src="photo/info/smell.jpg" class="info">
 		<img src="photo/info/3days.PNG" class="info">
+		<img src="photo/info/miss.PNG" class="info">
+		<img src="photo/info/toproom.PNG" class="info">
+		<img src="photo/info/rpley.JPG" class="info">
+		<img src="photo/info/scandal.PNG" class="info" >
 		<img src="photo/info/seafog.PNG" class="info"><br>
 		</div>
 	</div>
