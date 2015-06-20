@@ -100,7 +100,6 @@
 }catch(Exception ex){
 	%>오류<%=ex %>
 <%  } %>
-	%>
 </div>
 	<jsp:include page="footer.html" flush="false" />
 </body>

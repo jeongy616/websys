@@ -334,29 +334,27 @@ function loginchk(){
 				slider1.imgWin = 'http://ljoe.kr/bbs/viewImgPop.php';
 				slider1.contentsArray.push('<a href="photo/youcheon5.jpg" oncontextmenu="return true;"><img class="sliderIMG" src="photo/youcheon5.jpg" width="200" height="270" border="0" alt="유천1"/></a>');
 				slider1.contentsArray.push('<a href="photo/youcheon4.jpg" oncontextmenu="return true;"><img class="sliderIMG" src="photo/youcheon4.jpg" width="200" height="270" border="0" alt="유천2" /></a>');
-				slider1.contentsArray.push('<a href="photo/youcheon4.jpg" oncontextmenu="return true;"><img class="sliderIMG" src="photo/images/Copy of testets.jpg" width="200" height="270" border="0" alt="유천2" /></a>');
+				slider1.contentsArray.push('<a href="photo/youcheon4.jpg" oncontextmenu="return true;"><img class="sliderIMG" src="photo/images/testets.jpg" width="200" height="270" border="0" alt="유천2" /></a>');
 				slider1.contentsArray.push('<a href="photo/youcheon4.jpg" oncontextmenu="return true;"><img class="sliderIMG" src="photo/images/testtest.jpg" width="200" height="270" border="0" alt="유천2" /></a>');
 				slider1.init();
 		</script>
 		</div>
-		<div id="notice" style="overflow:auto;width:100%;height:260;">
-<span style="font-size:9pt;color:#000000;line-height:160%;">  <font face=Tahoma>- 가입시 닉네임으로 <b>본명</b>, <b>틴탑 멤버 이름</b>이나, <b>특수문자</b>, <b>자음남발</b> 등은 삼가해주세요.<br />
-<font color=cccccc>　Please refrain from nickname TEENTOP member name or such as consonant hard to understand.</font><br />
-<br />
-- 가입시 닉네임은 띄어쓰기 없이 <b>한글 8자, 영문 12자 이하</b>로 작성해주세요.<br />
-<font color=cccccc>　Please create a nickname to Hangul 8 character or alphabet 12 character.</font><br />
-<br />
-<font color=FF6674 size=5 face=Tahoma><b>━</b></font><br />
-<br />
-<b>포인트 안내</b> : 데이더방 댓글 작성시 <font color=tomato>+10점</font>, 그 외 모든 글 작성시 <font color=tomato>+5점</font><br />
-<br />
-Level.7 게시판을 이용하기 위해서는 <b>1123점</b>의 포인트가 필요합니다 :-)<br />
-포인트가 쌓이면 자동으로 레벨이 변동되니 따로 문의주지 않으셔도 됩니다.<br />
-<br />
-<br />
-<br />
-</span>
-		
+	<div id="notice" style="overflow:auto;width:100%;height:260;">
+		<span style="font-size:9pt;color:#000000;line-height:160%;">  <font face=Tahoma>- 가입시 닉네임으로 <b>본명</b>, <b>틴탑 멤버 이름</b>이나, <b>특수문자</b>, <b>자음남발</b> 등은 삼가해주세요.<br />
+		<font color=cccccc>　Please refrain from nickname TEENTOP member name or such as consonant hard to understand.</font><br />
+		<br />
+		- 가입시 닉네임은 띄어쓰기 없이 <b>한글 8자, 영문 12자 이하</b>로 작성해주세요.<br />
+		<font color=cccccc>　Please create a nickname to Hangul 8 character or alphabet 12 character.</font><br />
+		<br />
+		<font color=FF6674 size=5 face=Tahoma><b>━</b></font><br />
+		<br />
+		<b>포인트 안내</b> : 데이더방 댓글 작성시 <font color=tomato>+10점</font>, 그 외 모든 글 작성시 <font color=tomato>+5점</font><br />
+		<br />
+		Level.7 게시판을 이용하기 위해서는 <b>1123점</b>의 포인트가 필요합니다 :-)<br />
+		포인트가 쌓이면 자동으로 레벨이 변동되니 따로 문의주지 않으셔도 됩니다.<br />
+		<br />
+		<br />
+		<br />
+		</span>
 	</div>
-
 </div>
