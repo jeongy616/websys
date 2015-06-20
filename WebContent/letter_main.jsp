@@ -10,7 +10,7 @@
 		pageNum = "1";
 	}
 
-	int listSize = 10;
+	int listSize = 15;
 	int currentPage = Integer.parseInt(pageNum);
 	int nextPage = currentPage + 1;
 	int startRow = (currentPage - 1) * listSize + 1;
