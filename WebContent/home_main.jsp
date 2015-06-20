@@ -311,12 +311,14 @@ setInterval(function () {
 	<%}else{
 	%>
 	<div id="login">
-   <form action="login_check.jsp">
-      <input type="text" size="15" name="inputid"> <input type="password" size="15" name="inputpw">
-      <img src="photo/Login.jpg" width="45px" onclick="submit()" >
-      <img src="photo/Join.jpg" width="45px" onclick="location='join.jsp'">
-   </form>
-   </div>
+
+	<form action="login_check.jsp">
+		<input type="text" size="15" name="inputid"> <input type="password" size="15" name="inputpw">
+		<img src="photo/Login.jpg" width="45px" onclick="submit()" >
+		<img src="photo/Join.jpg" width="45px" onclick="location='join.jsp'">
+	</form>
+	</div>
+
 	<div class="D_div">
 		<p class="label">유천이 입대까지 .. <%=day%>일<%=hour%>시간<%=min%>분<%=sec%>초 남음 &nbsp&nbsp</p>
 	</div>
