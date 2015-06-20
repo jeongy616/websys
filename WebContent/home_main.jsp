@@ -226,6 +226,14 @@ function imgSlideTicker() {
 	#notice{
 		position:absolute;
 	}
+	#banner{
+		position:absolute;
+		margin-right:8%;
+		right:0;
+	}
+	.ban:link,.ban:visited,.ban:active {
+    color: #cccccc;
+}
 </style>
 <script>
 setInterval(function () {
@@ -356,5 +364,12 @@ function loginchk(){
 		<br />
 		<br />
 		</span>
+	</div>
+	<div id="banner">
+		<font color=cccccc size=5>　<p> <a href="" onclick="" class="ban">facebook </a></p>
+		<br><hr color=cccccc><br>
+		<p><a href="" onclick="" class="ban">C-jes entertainment </a></p>
+		<br><hr color=cccccc><br>
+		</font>
 	</div>
 </div>
