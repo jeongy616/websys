@@ -2,8 +2,9 @@
 
 li{list-style:none; }
 a{text-decoration:none;}
-a:visited{color:white;}
-a:HOVER{color:black}
+a:link,a:visited,a:active {
+    color: white;
+}
 img{border:none;}
 button{border:none;
 		background-color:white;}
@@ -48,7 +49,6 @@ padding:0px;
 	#menu > ul {
 		position:relative;
 		overflow:hidden;
-	
 	}
 	#menu > ul > li{
 	float:left;

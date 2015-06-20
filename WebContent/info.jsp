@@ -29,13 +29,7 @@
 	<% 
 	try
 		{
-		File folder = new File(application.getRealPath("/photo/info"));
-	    for( File f : folder.listFiles()){
-	%>
-	    <img src="/websys/photo/info/<%=f.getName()%>" class='thumbnail'   onmouseover='this.style.opacity="0.4"' onmouseout='this.style.opacity="1"'>  	
-			
-	<%
-	    	}
+
 		}catch(Exception ex){
 	    }
 	 %>

@@ -106,13 +106,7 @@ $('#text').val().replace(/\n/g, '<br>')
 		pstmt.executeUpdate();
 		}
 		%>
-		<script>
-		function com_Check(){
-				location.href='comment_ok.jsp?num=<%=textnum%>'
-
-		}
-		</script>
-		<form name="com_form" action="comment_ok.jsp">
+		<form name="com_form" action="comment_ok.jsp?num=<%=textnum%>">
 		<table  class="com">
 		<tr class="com">
 		<th>코멘트를 작성해주세요.</th>
@@ -127,7 +121,9 @@ $('#text').val().replace(/\n/g, '<br>')
 		<input type="hidden" name="bole" value="<%=board%>" >
 		<input type="submit" value="작성" >
 		</td>
-		</tr></form>
+		</tr>
+		</table>
+		</form>
 		<% 
 		String sql3 = "SELECT * FROM comment WHERE textnum = ?";
 		pstmt = conn.prepareStatement(sql3);
@@ -178,7 +174,6 @@ $('#text').val().replace(/\n/g, '<br>')
 	}catch(SQLException ex){
 		%>오류<%=ex %>
 <%  } %>
-		</article>
-	</section>
+
   </div>
   </body>

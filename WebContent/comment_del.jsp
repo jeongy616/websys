@@ -24,14 +24,18 @@
 		conn=DriverManager.getConnection(url,id,pw);
 		int number = 0;
 		number = Integer.parseInt(num);
+		String textnum ="";
 		
-		String bole = request.getParameter("bole");
-		System.out.println(bole);
-		String board = "board";
-		String letter = "letter";
+		String sql3 = "SELECT * FROM comment WHERE number = ?";
+		pstmt = conn.prepareStatement(sql3);
+		pstmt.setInt(1,number);
+		rs = pstmt.executeQuery();
 		
-		if(bole.equals(board)){
-			
+		while(rs.next()){
+		textnum = rs.getString("textnum");
+		System.out.println(textnum);
+		
+		}
 		String sql = "DELETE FROM comment WHERE number=?";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1,number);
@@ -43,38 +47,8 @@
 		pstmt.setInt(2,number);
 		pstmt.executeUpdate();
 		
-		String sql3 = "SELECT * FROM comment WHERE number = ?";
-		pstmt = conn.prepareStatement(sql3);
-		pstmt.setInt(1,number+1);
-		rs = pstmt.executeQuery();
-		if(rs.next()){
-			out.println("테이블 호출에 성공.");
-			String textnum = rs.getString("textnum");
-			response.sendRedirect("board_show.jsp?num="+textnum);
-		}
-		}
-		else{
-			String sql = "DELETE FROM comment2 WHERE number=?";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1,number);
-			pstmt.executeUpdate();
-
-			String sql2 = "UPDATE comment2 SET number=number-? WHERE number>?";
-			pstmt = conn.prepareStatement(sql2);
-			pstmt.setInt(1,1);
-			pstmt.setInt(2,number);
-			pstmt.executeUpdate();
-			
-			String sql3 = "SELECT * FROM comment2 WHERE number = ?";
-			pstmt = conn.prepareStatement(sql3);
-			pstmt.setInt(1,number+1);
-			rs = pstmt.executeQuery();
-			if(rs.next()){
-				out.println("테이블 호출에 성공.");
-				String textnum = rs.getString("textnum");
-				response.sendRedirect("letter_show.jsp?num="+textnum);
-			}
-		}
+		out.println("테이블 호출에 성공.");
+		response.sendRedirect("board_show.jsp?num="+textnum);
 		
 	}catch(Exception e){
 		out.println("테이블 호출에 실패했습니다."+e);

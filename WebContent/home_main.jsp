@@ -216,7 +216,8 @@ function imgSlideTicker() {
 		float:left;
 	}
 	#slide{
-		width:22%;
+	margin-left:10%;
+		width:16.7%;
 		position:absolute;
 	}
 	#login{

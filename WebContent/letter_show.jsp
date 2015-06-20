@@ -97,7 +97,7 @@ $('#text').val().replace(/\n/g, '<br>')
 				<td colspan="6" id="btn">
 				<button onclick="location='letter.jsp'"><img src="photo/list.png" width="40px"> </button>
 				<button onclick="edit(<%=userid%>)" ><img src="photo/editimg.png" width="40px"> </button>
-				<button onclick="b_delete(<%=userid%>)"><img src="photo/delimg.png" width="40px"> </button>
+				<button onclick="l_delete(<%=userid%>)" ><img src="photo/delimg.png" width="40px"> </button>
 				</td>
 				</tr>
 				</table>
@@ -108,83 +108,11 @@ $('#text').val().replace(/\n/g, '<br>')
 			pstmt.setString(2,number);
 			pstmt.executeUpdate();
 		}
-		%>
-		<script>
-		function com_Check(){
-				location.href='comment_ok.jsp?num=<%=textnum%>'
-
-		}
-		</script>
-		<form name="com_form" action="comment_ok.jsp">
-		<table  class="com">
-		<tr class="com">
-		<th>코멘트를 작성해주세요.</th>
-		</tr>
-		<tr class="com">
-		<td class="com"><textarea rows="5" name="comment" cols="120" border="0"></textarea></td>
-		</tr>
-		<tr class="com">
-		<td class="com">
-		<input type="hidden" name="userid" value="<%=loginid%>" >
-		<input type="hidden" name="textnum" value="<%=textnum %>" >
-		<input type="hidden" value="<%=letter %>" name="bole">
-		<input type="submit" value="작성" >
-		</td>
-		</tr></form>
-		<% 
-		String sql3 = "SELECT * FROM comment2 WHERE textnum = ?";
-		pstmt = conn.prepareStatement(sql3);
-		pstmt.setString(1,textnum);
-		rs = pstmt.executeQuery();
-
-		while(rs.next()){
-			String userid = rs.getString("userid");
-			String comnumber = rs.getString("number");
-			%>
-			<script>
-			function com_del(userid){
-				<%
-				if(loginid.equals(this)){
-				%>
-					q=confirm("삭제하시겠습니까?");
-					if(q){
-						location.href='comment_del.jsp?number=<%=comnumber%>&bole=<%=letter%>'
-					}
-					else{
-						alert("삭제가 취소되었습니다.");
-					}
-				<%	}
-				else{
-				%>
-					alert("회원님의 게시글이 아닙니다.");
-				<%	}%>
-			}
-			</script>
-			<table>
-				<tr>
-				<th >작성자</td>
-				<td ><%=rs.getString("userid") %></td>
-				<th >작성일</td>
-				<td ><%=rs.getString("date") %></td>
-				</tr>
-				<tr>
-				<td colspan="4" id="comment"><%=(rs.getString("comment")).replace("\r\n", "<br>")%>
-				</td>
-				</tr>
-				<tr>
-				<td colspan="4" id="btn">
-				<button onclick="com_del(<%=userid%>)"><img src="photo/delimg2.png" width="20px"></button>
-				<input type="hidden" value="<%=letter %>" name="bole">
-				<input type="hidden" value="<%=comnumber %>" name="number">
-				</td>
-				</tr>
-				</table>
-				<%
-		}
-	}catch(SQLException ex){
+	}
+	catch(SQLException ex){
 		%>오류<%=ex %>
 <%  } %>
-		</article>
-	</section>
+		
+	
   </div>
   </body>
