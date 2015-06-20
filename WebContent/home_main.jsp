@@ -348,7 +348,8 @@ function loginchk(){
 		</script>
 		</div>
 	<div id="notice" style="overflow:auto;width:100%;height:260;">
-		<span style="font-size:9pt;color:#000000;line-height:160%;">  <font face=Tahoma>- 가입시 닉네임으로 <b>본명</b>, <b>틴탑 멤버 이름</b>이나, <b>특수문자</b>, <b>자음남발</b> 등은 삼가해주세요.<br />
+		<span style="font-size:9pt;color:#000000;line-height:160%;">
+		<font face=Tahoma>- 가입시 닉네임으로 <b>본명</b>, <b>틴탑 멤버 이름</b>이나, <b>특수문자</b>, <b>자음남발</b> 등은 삼가해주세요.<br />
 		<font color=cccccc>　Please refrain from nickname TEENTOP member name or such as consonant hard to understand.</font><br />
 		<br />
 		- 가입시 닉네임은 띄어쓰기 없이 <b>한글 8자, 영문 12자 이하</b>로 작성해주세요.<br />
@@ -366,10 +367,13 @@ function loginchk(){
 		</span>
 	</div>
 	<div id="banner">
-		<font color=cccccc size=5>　<p> <a href="" onclick="" class="ban">facebook </a></p>
+		<font color=cccccc size=5>　
+		<p><a href="" onclick="https://www.facebook.com/CJESJYJ" class="ban">facebook </a></p>
 		<br><hr color=cccccc><br>
-		<p><a href="" onclick="" class="ban">C-jes entertainment </a></p>
+		<p><a href="" onclick="http://www.c-jes.com/ko" class="ban">C-jes entertainment </a></p>
 		<br><hr color=cccccc><br>
+		<p><a href="" onclick="https://twitter.com/6002theMicky" class="ban">twitter</a></p>
+		
 		</font>
 	</div>
 </div>
