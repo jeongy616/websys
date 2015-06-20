@@ -17,11 +17,12 @@
 	<jsp:include page="header.jsp" flush="false" />
 	
 <div id="content_div" >
-	<form name=zb_login method=post action="login_check.jsp" onSubmit="return zb_login_check_submit();">
+<center>
+	<form name=zb_login method=post action="login_check.jsp" >
 		<table border="0" cellpadding="0" cellspacing="0" width="300">
  			<tr>
   <th width="100">아이디 </th>
-  <td><input type="text" size="20" name="inputid"></td>
+  <td><input type="text" size="21" name="inputid"></td>
  </tr>
 
  <tr>
@@ -30,13 +31,13 @@
  </tr>
  <tr>
   <td colspan="2" class="tbottom">
-
-		<input type="image" src="photo/Login.jpg" border="0" width="45px" >
-		<input type="image" src="photo/Join.jpg" border="0" width="45px" >
-	</form>
+  <center>
+		<input type="image" src="photo/Login.jpg" border="0" width="60px" >  </center>
   </td>
  </tr>
  </table>
+ </form>
+ </center>
 </div>
 
 	<jsp:include page="footer.html" flush="false" />

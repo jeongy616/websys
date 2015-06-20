@@ -240,14 +240,6 @@ setInterval(function () {
 	$("li").next().Attr("display","inline");
 	}, 2000);
 
-function loginchk(){
-	var i = document.getElementById("inputid").value;
-	alert(i);
-	var p = document.getElementById("inputpw").value;
-	alert(p);
-	
-	location.href='login_check.jsp?inputid='+i'&inputpw='+p;
-}
 </script>
 
 <div id="content_div">
@@ -319,8 +311,8 @@ function loginchk(){
 	<%}else{
 	%>
 	<div id="login">
-		<input type="text" size="15" id="inputid"> <input type="password" size="15" id="inputpw">
-		<input type="image" src="photo/Login.jpg" width="45px" onclick="loginchk();" >
+		<input type="text" size="15" id="inputid" onclick="location='login.jsp'" > <input type="password" size="15" id="inputpw" onclick="location='login.jsp'" >
+		<input type="image" src="photo/Login.jpg" width="45px" onclick="location='login.jsp'" >
 		<input type="image" src="photo/Join.jpg" width="45px" onclick="location='join.jsp'">
 	</div>
 	<div class="D_div">
