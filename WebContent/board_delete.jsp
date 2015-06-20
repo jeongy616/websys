@@ -22,6 +22,11 @@
 		String pw = "loveudbpass";
 		Class.forName("com.mysql.jdbc.Driver");
 		conn=DriverManager.getConnection(url,id,pw);
+		
+		String sql3 = "DELETE FROM comment WHERE textnum=?";
+		pstmt = conn.prepareStatement(sql3);
+		pstmt.setString(1,number);
+		pstmt.executeUpdate();
 
 		String sql = "DELETE FROM board WHERE number=?";
 		pstmt = conn.prepareStatement(sql);
