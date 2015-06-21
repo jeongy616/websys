@@ -23,7 +23,7 @@
 			conn=DriverManager.getConnection(url,id,pw);
 
 			String title = request.getParameter("title");
-			String userid = request.getParameter("userid");
+			String userid = (String)session.getAttribute("loginID");
 			String text = request.getParameter("text");
 			Date d = new Date();
 			int number=1;

@@ -10,9 +10,16 @@
 <link href="background.css" rel="stylesheet" />
 <link href="content.css" rel="stylesheet" />
 <style>
-body{
-	background-color : #dae3ea
-}</style>
+th{
+	width:20%;
+	text-align:center;
+	background-color: rgb(102, 153, 255);
+}
+table{
+	width:60%;
+	border:0px;
+}
+</style>
 </head>
 
 <body>
@@ -46,16 +53,16 @@ body{
 		if(rs.next()){
 			count = Integer.parseInt(rs.getString("readCount"))+1;
 			String userid = rs.getString("userid");
-%>
+%><center>
 		<form method="post" action="letter_edit_ok.jsp?num=<%=number%>">
-			<table border="1" align="center">
+			<table border="1" bgcolor="white">
 			<tr>
-			<td >작성자</td>
-			<td ><input type="text" name="userid" id="userid" size="100" value="<%=rs.getString("userid") %>"></td>
+			<th >작성자</th>
+			<td ><input type="text" name="userid" id="userid" size="30" value="<%=rs.getString("userid") %>" disabled="disabled"></td>
 			</tr>
 			<tr>
-			<td >제목</td>
-			<td ><input type="text" name="title" id="title" size="100" value="<%=rs.getString("title") %>"></td>
+			<th >제목</th>
+			<td ><input type="text" name="title" size="70" value="<%=rs.getString("title") %>"></td>
 			</tr>
 			<tr>
 			<td colspan="2">
@@ -68,7 +75,7 @@ body{
 			</td>
 			</tr>
 			</table>
-		</form>
+		</form></center>
 <%
 		}
 	}catch(SQLException ex){

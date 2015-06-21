@@ -58,7 +58,7 @@ table{
 			<table border="1" bgcolor="white">
 			<tr>
 			<th >작성자</th>
-			<td ><input type="text" name="userid" id="userid" size="100" value="<%=rs.getString("userid") %>" disabled="disabled"></td>
+			<td ><input type="text" name="userid" id="userid" size="30" value="<%=rs.getString("userid") %>" disabled="disabled"></td>
 			</tr>
 			<tr>
 			<th >제목</th>
