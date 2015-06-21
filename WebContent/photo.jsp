@@ -51,37 +51,39 @@
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	String rank = "master";
+	
 	try{
 	String url = "jdbc:mysql://203.252.202.75:3306/loveudb";
 	String id = "loveudbuser";
 	String pw = "loveudbpass";
 	Class.forName("com.mysql.jdbc.Driver");
 	conn=DriverManager.getConnection(url,id,pw);
-
-	String sql = "SELECT * FROM members WHERE rank = ?";
+	String loginid = (String)session.getAttribute("loginID");
+	
+	String sql = "SELECT * FROM members WHERE userId = ?";
 	pstmt = conn.prepareStatement(sql);
-	pstmt.setString(1,rank);
+	pstmt.setString(1,loginid);
 	rs = pstmt.executeQuery();
 	
 	while(rs.next()){
-		String loginid = (String)session.getAttribute("loginID");
 		String userid = rs.getString("userid");
+		String userrank = rs.getString("rank");
+		System.out.println(userid + "\n" +loginid);
 		if(loginid!=null){
 			if(userid != null){
-				if(loginid.equals(userid)){
+				if(userrank.equals(rank)){
 	%>
-
 	<div class="photo_upload">
 		<button id="photo_up" onclick="upload()" background-color="white"><img src="photo/Upload.jpg" width="70px" ></button>
 	</div><br>
-	<%
+	<%	
 				}
 				else{
 					%>
 					<div class="photo_upload">
 						<button id="photo_up_no" onclick="upload()" disabled="disabled"><img src="photo/Upload.jpg"width="70px"></button>
 					</div>
-					<%}
+				<%}
 			}
 		}
 		else{
