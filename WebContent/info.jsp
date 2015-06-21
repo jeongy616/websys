@@ -10,6 +10,7 @@
  </head>
 <link href="background.css" rel="stylesheet" />
 <link href="content.css" rel="stylesheet" />
+
 <style>
 .info {
 	width: 180px;
@@ -22,6 +23,7 @@
 	width:100%;
 	height:350px;
 }
+
 </style>
 </head>
 <body>
@@ -68,7 +70,7 @@
 		<img src="photo/info/seafog.PNG" class="info"><br>
 		</div>
 	</div>
-	<jsp:include page="footer.html" flush="false" />
+	
 </body>
  </body>
 </html>

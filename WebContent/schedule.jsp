@@ -197,8 +197,12 @@ ResultSet rs = null;
 
 %>
 </table>
-<div id="sche_div">
+	<div id="schedule_div">
+		<img src="photo/schedclick.png" id="sched" width="100px" height="100px">
+		<div id="cal_page">
+			<jsp:include page="schedule.jsp" flush="false" />
+		</div>
+	</div>
 
-</div>
 </body>
 </html>
