@@ -48,7 +48,7 @@ $('#text').val().replace(/\n/g, '<br>')
 			String userid = rs.getString("userid");
 %>
 <script>
-		function edit(userid){
+		function edit(){
 			
 			<%
 			if(loginid.equals(userid)){
@@ -60,7 +60,7 @@ $('#text').val().replace(/\n/g, '<br>')
 				alert("회원님의 게시글이 아닙니다.");
 			<%	}%>
 		}
-		function l_delete(userid){
+		function l_delete(){
 			<%
 			if(loginid.equals(userid)){
 			%>
@@ -97,8 +97,8 @@ $('#text').val().replace(/\n/g, '<br>')
 				<tr>
 				<td colspan="6" id="btn">
 				<button onclick="location='letter.jsp'"><img src="photo/list.png" width="40px"> </button>
-				<button onclick="edit(<%=userid%>)" ><img src="photo/editimg.png" width="40px"> </button>
-				<button onclick="l_delete(<%=userid%>)" ><img src="photo/delimg.png" width="40px"> </button>
+				<button onclick="edit()" ><img src="photo/editimg.png" width="40px"> </button>
+				<button onclick="l_delete()" ><img src="photo/delimg.png" width="40px"> </button>
 				</td>
 				</tr>
 				</table>

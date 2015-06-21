@@ -52,7 +52,7 @@ $('#text').val().replace(/\n/g, '<br>')
 			String userid = rs.getString("userid");
 %>
 <script>
-		function edit(userid){
+		function edit(){
 			<%
 			if(loginid.equals(userid)){
 			%>
@@ -63,7 +63,7 @@ $('#text').val().replace(/\n/g, '<br>')
 				alert("회원님의 게시글이 아닙니다.");
 			<%	}%>
 		}
-		function b_delete(userid){alert("userid");
+		function b_delete(){
 			<%
 			if(loginid.equals(userid)){
 			%>
@@ -100,8 +100,8 @@ $('#text').val().replace(/\n/g, '<br>')
 				<tr>
 				<td colspan="6" id="btn">
 				<button onclick="location='board.jsp'"><img src="photo/list.png" width="40px"> </button>
-				<button onclick="edit(<%=userid%>)"><img src="photo/editimg.png" width="40px"> </button>
-				<button onclick="b_delete(<%=userid%>)" ><img src="photo/delimg.png" width="40px"> </button>
+				<button onclick="edit()"><img src="photo/editimg.png" width="40px"> </button>
+				<button onclick="b_delete()" ><img src="photo/delimg.png" width="40px"> </button>
 				</td>
 				</tr>
 				</table>
@@ -138,13 +138,13 @@ $('#text').val().replace(/\n/g, '<br>')
 		rs = pstmt.executeQuery();
 
 		while(rs.next()){
-			String userid = rs.getString("userid");
+			String couserid = rs.getString("userid");
 			String comnumber = rs.getString("number");
 			%>
 			<script>
-			function com_del(userid){
+			function com_del(){
 				<%
-				if(loginid.equals(userid)){
+				if(loginid.equals(couserid)){
 				%>
 					q=confirm("삭제하시겠습니까?");
 					if(q){
@@ -156,7 +156,7 @@ $('#text').val().replace(/\n/g, '<br>')
 				<%	}
 				else{
 				%>
-					alert("회원님의 게시글이 아닙니다.");
+					alert("회원님의 댓글이 아닙니다.");
 				<%	}%>
 			}
 			</script><center>
@@ -172,7 +172,7 @@ $('#text').val().replace(/\n/g, '<br>')
 				</tr>
 				<tr>
 				<td colspan="4" id="btn">
-				<input type="button" value=" X " onclick="com_del(<%=rs.getString("userid")%>)" class="com_btn">
+				<input type="button" value=" X " onclick="com_del()" class="com_btn">
 				</td>
 				</tr>
 				</table></center>
