@@ -65,12 +65,17 @@
 	pstmt.setString(1,loginid);
 	rs = pstmt.executeQuery();
 	
+	if(loginid==null){
+		%>
+		<div class="photo_upload">
+			<button id="photo_up_no" disabled="disabled"><img src="photo/Upload.jpg"width="70px"></button>
+		</div>
+		<%}
+	
 	while(rs.next()){
 		String userid = rs.getString("userid");
 		String userrank = rs.getString("rank");
-		System.out.println(userid + "\n" +loginid);
 		if(loginid!=null){
-			if(userid != null){
 				if(userrank.equals(rank)){
 	%>
 	<div class="photo_upload">
@@ -81,17 +86,10 @@
 				else{
 					%>
 					<div class="photo_upload">
-						<button id="photo_up_no" onclick="upload()" disabled="disabled"><img src="photo/Upload.jpg"width="70px"></button>
+						<button id="photo_up_no" disabled="disabled"><img src="photo/Upload.jpg"width="70px"></button>
 					</div>
 				<%}
-			}
 		}
-		else{
-		%>
-		<div class="photo_upload">
-			<button id="photo_up_no" onclick="upload()" disabled="disabled"><img src="photo/Upload.jpg"width="70px"></button>
-		</div>
-		<%}
 	}
 		File folder = new File(application.getRealPath("/photo/images"));
 	    for( File f : folder.listFiles()){
