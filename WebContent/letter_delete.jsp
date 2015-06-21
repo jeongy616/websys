@@ -10,6 +10,7 @@
 </head>
 <body>
 <%
+	
 	String number = request.getParameter("num");
 	request.setCharacterEncoding("UTF-8");
 	Connection conn = null;

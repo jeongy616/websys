@@ -10,6 +10,13 @@
 <link href="content.css" rel="stylesheet" />
 <link href="show.css" rel="stylesheet" />
 </head>
+<style>
+.com_btn{
+ background-color:#FFADFF;
+ color:white;
+ font-size:13px;
+}
+</style>
 <script>
 $('#text').val().replace(/\n/g, '<br>')
 </script>
@@ -56,7 +63,7 @@ $('#text').val().replace(/\n/g, '<br>')
 				alert("회원님의 게시글이 아닙니다.");
 			<%	}%>
 		}
-		function b_delete(userid){
+		function b_delete(userid){alert("userid");
 			<%
 			if(loginid.equals(userid)){
 			%>
@@ -76,15 +83,15 @@ $('#text').val().replace(/\n/g, '<br>')
 </script>
 			<table>
 				<tr>
-				<th >작성자</td>
-				<td ><%=rs.getString("userid") %></td>
-				<th >작성일</td>
+				<th >작성자</th>
+				<td ><%=userid%></td>
+				<th >작성일</th>
 				<td ><%=rs.getString("date") %></td>
-				<th >조회수</td>
+				<th >조회수</th>
 				<td ><%=count %></td>
 				</tr>
 				<tr>
-				<th >제목</td>
+				<th >제목</th>
 				<td colspan="5"><%=rs.getString("title") %></td>
 				</tr>
 				<tr>
@@ -92,9 +99,9 @@ $('#text').val().replace(/\n/g, '<br>')
 				</tr>
 				<tr>
 				<td colspan="6" id="btn">
-				<button onclick="location='board.jsp'"><img src="photo/list.png" width="40px"></button>
-				<button onclick="edit(<%=userid%>)" ><img src="photo/editimg.png" width="40px"></button>
-				<button onclick="b_delete(<%=userid%>)"><img src="photo/delimg.png" width="40px"></button>
+				<button onclick="location='board.jsp'"><img src="photo/list.png" width="40px"> </button>
+				<button onclick="edit(<%=userid%>)"><img src="photo/editimg.png" width="40px"> </button>
+				<button onclick="b_delete(<%=userid%>)" ><img src="photo/delimg.png" width="40px"> </button>
 				</td>
 				</tr>
 				</table>
@@ -105,25 +112,25 @@ $('#text').val().replace(/\n/g, '<br>')
 		pstmt.setString(2,number);
 		pstmt.executeUpdate();
 		}
-		%>
+		%><center>
 		<form name="com_form" action="comment_ok.jsp?num=<%=textnum%>">
-		<table  class="com">
+		<table  class="com" style="width:80%;">
 		<tr class="com">
 		<th>코멘트를 작성해주세요.</th>
 		</tr>
 		<tr class="com">
-		<td class="com"><textarea rows="5" name="comment" cols="120" border="0"></textarea></td>
+		<td class="com"><textarea rows="5" name="comment" cols="140"></textarea></td>
 		</tr>
 		<tr class="com">
 		<td class="com">
 		<input type="hidden" name="userid" value="<%=loginid%>" >
 		<input type="hidden" name="textnum" value="<%=textnum %>" >
 		<input type="hidden" name="bole" value="<%=board%>" >
-		<input type="submit" value="작성" >
+		<input type="submit" value=" O " class="com_btn">
 		</td>
 		</tr>
 		</table>
-		</form>
+		</form></center>
 		<% 
 		String sql3 = "SELECT * FROM comment WHERE textnum = ?";
 		pstmt = conn.prepareStatement(sql3);
@@ -152,23 +159,23 @@ $('#text').val().replace(/\n/g, '<br>')
 					alert("회원님의 게시글이 아닙니다.");
 				<%	}%>
 			}
-			</script>
-			<table>
+			</script><center>
+			<table style="width:80%;">
 				<tr>
-				<th >작성자</td>
-				<td ><%=rs.getString("userid")%></td>
-				<th >작성일</td>
-				<td ><%=rs.getString("date") %></td>
+				<th width="20%">작성자</td>
+				<td width="30%"><%=rs.getString("userid")%></td>
+				<th width="20%">작성일</td>
+				<td width="30%"><%=rs.getString("date") %></td>
 				</tr>
 				<tr>
 				<td colspan="4" id="comment"><%=(rs.getString("comment")).replace("\r\n", "<br>")%></td>
 				</tr>
 				<tr>
 				<td colspan="4" id="btn">
-				<input type="button" value="삭제" onclick="com_del(<%=userid%>)">
+				<input type="button" value=" X " onclick="com_del(<%=rs.getString("userid")%>)" class="com_btn">
 				</td>
 				</tr>
-				</table>
+				</table></center>
 				<%
 		}
 	}catch(SQLException ex){

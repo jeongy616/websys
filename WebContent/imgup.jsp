@@ -16,6 +16,7 @@
 <%@page import="java.text.SimpleDateFormat" %>
 </head>
 <body>
+<h4>정상적으로 업로드 되었습니다.</h4>
 <%
     request.setCharacterEncoding("UTF-8");
     // 10Mbyte 제한
@@ -62,9 +63,7 @@
             while((read=fin.read(buf,0,buf.length))!=-1){
                 fout.write(buf, 0, read);
             }
-            %>
-            <center><P>정상적으로 업로드 되었습니다.</P></center>
-            <%
+
             fin.close();
             fout.close();
             oldFile.delete();
@@ -73,7 +72,5 @@
         e.printStackTrace();
     }
 %>
-
-
 </body>
 </html>

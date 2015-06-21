@@ -49,6 +49,7 @@ $('#text').val().replace(/\n/g, '<br>')
 %>
 <script>
 		function edit(userid){
+			
 			<%
 			if(loginid.equals(userid)){
 			%>
@@ -80,7 +81,7 @@ $('#text').val().replace(/\n/g, '<br>')
 			<table>
 				<tr>
 				<th >작성자</td>
-				<td ><%=rs.getString("userid") %></td>
+				<td ><%=userid %></td>
 				<th >작성일</td>
 				<td ><%=rs.getString("date") %></td>
 				<th >조회수</td>

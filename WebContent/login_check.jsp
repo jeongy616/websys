@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 </head>
 <body>
 	<%
@@ -52,7 +53,7 @@
 			}
 			if(i==2){
 			%>
-			<script>alert("아이디가 일치하지 않습니다."); location="login.jsp"</script>
+			<script>alert("아이디가 일치하지 않습니다."+<%=userid%>); location="login.jsp"</script>
 			<%
 			}
 

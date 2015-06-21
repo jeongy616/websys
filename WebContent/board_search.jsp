@@ -152,8 +152,7 @@
 	
 	</script>
 			<div align="right">
-			<h1><a href="board.jsp">목록</a>
-			<img src="photo/글쓰기.png" width="70px" onclick="location='board_write_main.jsp'"></h1>
+			<h1><a href="board.jsp">목록</a><a href="board_write_main.jsp">글쓰기</a></h1>
 			</div>
 			<br><br>
 			<div align ="center">

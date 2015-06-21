@@ -18,5 +18,8 @@
 		<jsp:include page="home_main.jsp" flush="false" />
 	</div>
 	<jsp:include page="footer.html" flush="false" />
+	
+
+	
 </body>
 </html>

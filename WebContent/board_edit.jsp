@@ -53,7 +53,7 @@ table{
 		if(rs.next()){
 			count = Integer.parseInt(rs.getString("readCount"))+1;
 			String userid = rs.getString("userid");
-%>
+%><center>
 		<form method="post" action="board_edit_ok.jsp?num=<%=number%>">
 			<table border="1" bgcolor="white">
 			<tr>
@@ -75,7 +75,7 @@ table{
 			</td>
 			</tr>
 			</table>
-		</form>
+		</form></center>
 <%
 		}
 	}catch(SQLException ex){

@@ -216,7 +216,7 @@ function imgSlideTicker() {
 		float:left;
 	}
 	#slide{
-	margin-left:10%;
+	margin-left:5%;
 		width:16.7%;
 		position:absolute;
 	}
@@ -228,7 +228,7 @@ function imgSlideTicker() {
 	}
 	#banner{
 		position:absolute;
-		margin-right:8%;
+		margin-right:2%;
 		right:0;
 	}
 	.ban:link,.ban:visited,.ban:active {
@@ -311,10 +311,12 @@ setInterval(function () {
 	<%}else{
 	%>
 	<div id="login">
-		<input type="text" size="15" id="inputid" onclick="location='login.jsp'" > <input type="password" size="15" id="inputpw" onclick="location='login.jsp'" >
-		<input type="image" src="photo/Login.jpg" width="45px" onclick="location='login.jsp'" >
-		<input type="image" src="photo/Join.jpg" width="45px" onclick="location='join.jsp'">
-	</div>
+   <form action="login_check.jsp">
+      <input type="text" size="15" name="inputid"> <input type="password" size="15" name="inputpw">
+      <img src="photo/Login.jpg" width="45px" onclick="submit()" >
+      <img src="photo/Join.jpg" width="45px" onclick="location='join.jsp'">
+   </form>
+   </div>
 	<div class="D_div">
 		<p class="label">유천이 입대까지 .. <%=day%>일<%=hour%>시간<%=min%>분<%=sec%>초 남음 &nbsp&nbsp</p>
 	</div>
@@ -342,7 +344,7 @@ setInterval(function () {
 	<div id="notice" style="overflow:auto;width:100%;height:260;">
 		<span style="font-size:9pt;color:#000000;line-height:160%;">
 		<font face=Tahoma>- 가입시 닉네임으로 <b>본명</b>, <b>박유천 이름</b>이나, <b>특수문자</b>, <b>자음남발</b> 등은 삼가해주세요.<br />
-		<font color=cccccc>　Please refrain from nickname TEENTOP member name or such as consonant hard to understand.</font><br />
+		<font color=cccccc>　Please refrain from nickname ParkYouCheon name or such as consonant hard to understand.</font><br />
 		<br />
 		- 가입시 닉네임은 띄어쓰기 없이 <b>한글 8자, 영문 12자 이하</b>로 작성해주세요.<br />
 		<font color=cccccc>　Please create a nickname to Hangul 8 character or alphabet 12 character.</font><br />
@@ -361,9 +363,9 @@ setInterval(function () {
 	<div id="banner">
 		<font color=cccccc size=5>　
 		<p><a href="http://www.facebook.com/CJESJYJ" class="ban">facebook </a></p>
-		<br><hr color=cccccc><br>
+		<br><center><hr color=cccccc width="80%"></center><br>
 		<p><a href="http://www.c-jes.com/ko" class="ban">C-jes entertainment </a></p>
-		<br><hr color=cccccc><br>
+		<br><center><hr color=cccccc width="80%"></center><br>
 		<p><a href="http://twitter.com/6002theMicky" class="ban">twitter</a></p>
 		
 		</font>
