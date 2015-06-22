@@ -59,6 +59,8 @@
 	Class.forName("com.mysql.jdbc.Driver");
 	conn=DriverManager.getConnection(url,id,pw);
 	String loginid = (String)session.getAttribute("loginID");
+	String root = request.getServletContext().getRealPath("/");
+	String savePath = root + "photo/images";
 	
 	String sql = "SELECT * FROM members WHERE userId = ?";
 	pstmt = conn.prepareStatement(sql);

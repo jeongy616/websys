@@ -24,7 +24,7 @@
     // 웹서버 컨테이너 경로
     String root = request.getSession().getServletContext().getRealPath("/");
     // 파일 저장 경로(ex : /home/tour/web/ROOT/upload)
-    String savePath = "C:/Users/jeong/workspace/websys/WebContent/photo/images";
+    String savePath = root + "photo/images";
     // 업로드 파일명
     String uploadFile = "";
     // 실제 저장할 파일명

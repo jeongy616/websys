@@ -20,9 +20,10 @@
 </head>
 <body>
 <center>
-<form method="post" enctype="multipart/form-data" action="imgup.jsp">
-<input type="file" name="filename1" size="60" id="btnfi"><br>
-<input type="submit" value="업로드" id="btnup"><br><br>
+<form name="fileForm" id="fileForm" method="POST" action="imgup.jsp" enctype="multipart/form-data">
+    <input type="text" name="title" id="title">
+    <input type="file" name="uploadFile" id="uploadFile"> 
+    <input type="submit" value="전송">
 </form>
 </center>
 </body>
