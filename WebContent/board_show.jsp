@@ -41,7 +41,15 @@ $('#text').val().replace(/\n/g, '<br>')
 		String pw = "loveudbpass";
 		Class.forName("com.mysql.jdbc.Driver");
 		conn=DriverManager.getConnection(url,id,pw);
-		
+
+		String sql4 = "SELECT rank FROM members WHERE userId = ?";
+		pstmt = conn.prepareStatement(sql4);
+		pstmt.setString(1,loginid);
+		rs = pstmt.executeQuery();
+		if(rs.next()){
+			String userrank = rs.getString("rank");
+			String rank = "master";
+
 		String board = "board";
 		String sql = "SELECT * FROM board WHERE number = ?";
 		pstmt = conn.prepareStatement(sql);
@@ -74,7 +82,17 @@ $('#text').val().replace(/\n/g, '<br>')
 				else{
 					alert("삭제가 취소되었습니다.");
 				}
-			<%	}
+			<%}
+			else if(userrank.equals(rank)){
+			%>
+				q=confirm("관리자권한으로 삭제하시겠습니까?");
+				if(q){
+					location.href='board_delete.jsp?num=<%=number%>';
+				}
+				else{
+					alert("삭제가 취소되었습니다.");
+				}
+			<%}
 			else{
 			%>
 				alert("회원님의 게시글이 아닙니다.");
@@ -177,7 +195,7 @@ $('#text').val().replace(/\n/g, '<br>')
 				</tr>
 				</table></center>
 				<%
-		}
+		}	}
 	}catch(SQLException ex){
 		%>오류<%=ex %>
 <%  } %>
