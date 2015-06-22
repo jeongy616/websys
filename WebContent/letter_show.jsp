@@ -10,6 +10,11 @@
 <link href="content.css" rel="stylesheet" />
 <link href="show.css" rel="stylesheet" />
 <style>
+.com_btn{
+ background-color:#FFADFF;
+ color:white;
+ font-size:13px;
+}
 </style>
 </head>
 <script>
@@ -121,17 +126,81 @@ $('#text').val().replace(/\n/g, '<br>')
 				</tr>
 				</table>
 <% 
-			String sql2 = "UPDATE letter set readCount=? where number=?";
-			pstmt = conn.prepareStatement(sql2);       
-			pstmt.setInt(1,count);
-			pstmt.setString(2,number);
-			pstmt.executeUpdate();
+		String sql2 = "UPDATE letter set readCount=? where number=?";
+		pstmt = conn.prepareStatement(sql2);       
+		pstmt.setInt(1,count);
+		pstmt.setString(2,number);
+		pstmt.executeUpdate();
+		}
+%>		<center>
+		<form name="com_form" action="comment_ok.jsp?num=<%=textnum%>">
+		<table  class="com" style="width:80%;">
+		<tr class="com">
+		<th>코멘트를 작성해주세요.</th>
+		</tr>
+		<tr class="com">
+		<td class="com"><textarea rows="5" name="comment" cols="140"></textarea></td>
+		</tr>
+		<tr class="com">
+		<td class="com">
+		<input type="hidden" name="userid" value="<%=loginid%>" >
+		<input type="hidden" name="textnum" value="<%=textnum %>" >
+		<input type="hidden" name="bole" value="letter" >
+		<input type="submit" value=" O " class="com_btn">
+		</td>
+		</tr>
+		</table>
+		</form></center>
+<%
+	String sql3 = "SELECT * FROM comment2 WHERE textnum = ?";
+	pstmt = conn.prepareStatement(sql3);
+	pstmt.setString(1,textnum);
+	rs = pstmt.executeQuery();
+
+	while(rs.next()){
+		String couserid = rs.getString("userid");
+		String comnumber = rs.getString("number");
+		%>
+		<script>
+		function com_del(){
+			<%
+			if(loginid.equals(couserid)){
+			%>
+				q=confirm("삭제하시겠습니까?");
+				if(q){
+					location.href='comment_del.jsp?number=<%=comnumber%>&bole=letter'
+				}
+				else{
+					alert("삭제가 취소되었습니다.");
+				}
+			<%	}
+			else{
+			%>
+				alert("회원님의 댓글이 아닙니다.");
+			<%	}%>
+		}
+		</script><center>
+		<table style="width:80%;">
+			<tr>
+			<th width="20%">작성자</td>
+			<td width="30%"><%=rs.getString("userid")%></td>
+			<th width="20%">작성일</td>
+			<td width="30%"><%=rs.getString("date") %></td>
+			</tr>
+			<tr>
+			<td colspan="4" id="comment"><%=(rs.getString("comment")).replace("\r\n", "<br>")%></td>
+			</tr>
+			<tr>
+			<td colspan="4" id="btn">
+			<input type="button" value=" X " onclick="com_del()" class="com_btn">
+			</td>
+			</tr>
+			</table></center>
+				<%
 		}	}
-	}
-	catch(SQLException ex){
+	}catch(SQLException ex){
 		%>오류<%=ex %>
 <%  } %>
-		
-	
+
   </div>
   </body>

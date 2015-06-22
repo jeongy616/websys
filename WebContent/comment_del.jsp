@@ -22,33 +22,62 @@
 		String pw = "loveudbpass";
 		Class.forName("com.mysql.jdbc.Driver");
 		conn=DriverManager.getConnection(url,id,pw);
+		
+		String bole = request.getParameter("bole");
+		String board = "board";
+		String letter = "letter";
 		int number = 0;
 		number = Integer.parseInt(num);
 		String textnum ="";
 		
-		String sql3 = "SELECT * FROM comment WHERE number = ?";
-		pstmt = conn.prepareStatement(sql3);
-		pstmt.setInt(1,number);
-		rs = pstmt.executeQuery();
+		if(board.equals(bole)){
+			String sql3 = "SELECT * FROM comment WHERE number = ?";
+			pstmt = conn.prepareStatement(sql3);
+			pstmt.setInt(1,number);
+			rs = pstmt.executeQuery();
 		
-		while(rs.next()){
-		textnum = rs.getString("textnum");
-		System.out.println(textnum);
+			while(rs.next()){
+			textnum = rs.getString("textnum");
+			System.out.println(textnum);
 		
-		}
-		String sql = "DELETE FROM comment WHERE number=?";
-		pstmt = conn.prepareStatement(sql);
-		pstmt.setInt(1,number);
-		pstmt.executeUpdate();
+			}
+			String sql = "DELETE FROM comment WHERE number=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1,number);
+			pstmt.executeUpdate();
 
-		String sql2 = "UPDATE comment SET number=number-? WHERE number>?";
-		pstmt = conn.prepareStatement(sql2);
-		pstmt.setInt(1,1);
-		pstmt.setInt(2,number);
-		pstmt.executeUpdate();
+			String sql2 = "UPDATE comment SET number=number-? WHERE number>?";
+			pstmt = conn.prepareStatement(sql2);
+			pstmt.setInt(1,1);
+			pstmt.setInt(2,number);
+			pstmt.executeUpdate();
+
+			response.sendRedirect("board_show.jsp?num="+textnum);
+		}
+		else{
+			String sql3 = "SELECT * FROM comment2 WHERE number = ?";
+			pstmt = conn.prepareStatement(sql3);
+			pstmt.setInt(1,number);
+			rs = pstmt.executeQuery();
 		
-		out.println("테이블 호출에 성공.");
-		response.sendRedirect("board_show.jsp?num="+textnum);
+			while(rs.next()){
+			textnum = rs.getString("textnum");
+			System.out.println(textnum);
+		
+			}
+			String sql = "DELETE FROM comment2 WHERE number=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1,number);
+			pstmt.executeUpdate();
+
+			String sql2 = "UPDATE comment2 SET number=number-? WHERE number>?";
+			pstmt = conn.prepareStatement(sql2);
+			pstmt.setInt(1,1);
+			pstmt.setInt(2,number);
+			pstmt.executeUpdate();
+
+			response.sendRedirect("letter_show.jsp?num="+textnum);
+		}
 		
 	}catch(Exception e){
 		out.println("테이블 호출에 실패했습니다."+e);
