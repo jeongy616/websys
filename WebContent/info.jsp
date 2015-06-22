@@ -6,7 +6,7 @@
 <html lang="en">
  <head>
   <meta charset="UTF-8">
-  <title>Info</title>
+  <title>Information</title>
  </head>
 <link href="background.css" rel="stylesheet" />
 <link href="content.css" rel="stylesheet" />

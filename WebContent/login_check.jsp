@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Login</title>
 
 </head>
 <body>
@@ -42,7 +42,7 @@
 					session.setAttribute("loginID", userid);
 					session.setMaxInactiveInterval(60 * 60);
 					%>
-					<script>location.href='home.jsp';</script>
+					<script>alert("환영합니다!"); location.href='home.jsp';</script>
 					<%
 				}
 				else if(userid.equals(testid)){

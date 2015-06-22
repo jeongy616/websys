@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>LoveU Join</title>
 <link href="background.css" rel="stylesheet" />
 <style>
 body{

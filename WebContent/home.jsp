@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title her</title>
+<title>LoveU Home</title>
 <link href="background.css" rel="stylesheet" />
 <script src="jquery-1.11.3.min.js"></script>
 </head>

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ID Check</title>
 </head>
 					<script>
 					  function inputClose(){

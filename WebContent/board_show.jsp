@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Board Show</title>
 <link href="background.css" rel="stylesheet" />
 <link href="content.css" rel="stylesheet" />
 <link href="show.css" rel="stylesheet" />
